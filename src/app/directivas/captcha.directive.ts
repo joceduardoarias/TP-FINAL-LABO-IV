@@ -13,8 +13,7 @@ export class CaptchaDirective {
     }, 500);
   }
    accion()
-   {
-    debugger
+   {    
     let random1 = Math.floor((Math.random()* (500-100+1))+100);
     this.appCaptcha.emit(random1);
    }

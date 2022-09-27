@@ -181,8 +181,7 @@ esto(data:any)
 }
 
 accionn(data:any)
-  {
-    debugger
+  {    
     this.capcha = data;
   }
 

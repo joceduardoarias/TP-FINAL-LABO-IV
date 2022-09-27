@@ -26,7 +26,7 @@ export class AltaEspecialistaComponent implements OnInit {
   eventoGeneral:any;
   unespecialista:Especialista;
   imagenes:any[] = [];
-  capcha:any = '543'
+  capcha:any;
   cap:any = ''
   public formGroup!: FormGroup;
   encontrado:boolean = false;
@@ -231,5 +231,9 @@ deshabilitado()
    }, 100);
   }
 }
+accion(data:any)
+  {    
+    this.capcha = data;
+  }
 
 } 

@@ -1,0 +1,70 @@
+
+<div class="d-flex justify-content-center align-items-center">
+
+
+
+<div class="general d-flex justify-content-center align-items-center">
+    <div class="table-responsive">
+        <div class="d-flex justify-content-center align-items-center">
+            <h2>MIS TURNOS</h2>
+        </div>
+      <div class="table-responsive segundogeneral">
+        <div class="d-flex justify-content-center align-items-center">
+
+          <div class="d-flex tt">
+            <input class="form-control me-2" type="search" placeholder="Search" value="dasd"  aria-label="Search" [(ngModel)]="b">
+            <button class="btn btn-outline-success" (click) = "hacerBusqueda()" type="button">Search</button>
+            <button class="btn btn-outline-warning" type="button" (click) = "limpiar()">Limpiar</button>
+          </div>
+          
+          
+          </div>
+        <table class="table text-center">
+              <thead>
+                <tr>
+                  <th scope="col">Dia</th>
+                  <th scope="col">Horario</th>
+                  <th scope="col">Especialidad</th>
+                  <th scope="col">Especialista</th>
+                  <th scope="col">Paciente</th>
+                  <th scope="col">Accion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of list" >
+                    <td >{{item.dia}} </td>
+                    <td >{{item.hora}}:{{item.minutos}} </td>    
+                    <td >{{item.especialidad}} </td>
+                    <td >{{item.correoEspecialista}} </td>
+                    <td >{{item.correoPaciente}} </td>
+                    <div>
+                      <button class="btn btn-primary" *ngIf="item.estado == 'pendiente'" (click) = "cancelarTurno('especialista',item)">CANCELAR</button>
+                      <button (click) = "verresenia(item)" class="btn btn-primary" *ngIf="item.comentariopaciente != 'No hay comentario' || item.comentarioespecialista != 'No hay comentario' || item.comentarioadmin != 'No hay comentario' ">Ver Reseña</button>          
+                    </div>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    
+</div>
+</div>
+<div class="d-flex justify-content-center align-items-center" *ngIf="resenia">
+<table class="tam" >
+<thead>
+  <th scope="col">Comentario Paciente</th>
+  <th scope="col">Comentario Especialista</th>
+  <th scope="col">Comentario Administrador</th>
+  <th scope="col">Historia Clínica</th>
+
+</thead>
+<tbody>
+  <tr>
+    <td>{{reseniaActual.comentariopaciente}} </td>
+    <td>{{reseniaActual.comentarioespecialista}}</td>
+    <td>{{reseniaActual.comentarioadmin}}</td>
+  
+  </tr>
+</tbody>
+</table>
+</div>
+</div>

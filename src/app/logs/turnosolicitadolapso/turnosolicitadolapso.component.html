@@ -1,0 +1,36 @@
+<p>turnosolicitadolapso works!</p>
+<input type="text" appFechaDirectivaDirective appSoloNumeros appLargoMaximo [(ngModel)]="fechaDesde" placeholder="Fecha Desde (dd/mm/aaaa)">
+<input type="text" appFechaDirectivaDirective appSoloNumeros appLargoMaximo [(ngModel)]="fechaHasta" placeholder="Fecha Hasta (dd/mm/aaaa)">
+<button class="btn btn-primary" (click) = "filtrar()">FILTRAR</button>
+
+<div class="d-flex justify-content-center align-items-center">
+    <h2>Cantidad de turnos por especialidad</h2>
+  </div>
+  <div class="d">
+      <div id="content" #content>
+      
+          <div class="d-flex justify-content-center align-items-center">
+              <table class="table m">
+              <thead>
+                <tr>
+                  <th scope="col">Especialista</th>
+                  <th scope="col">Cantidad</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let item of listafinal">
+                  <tr>
+                      <td> {{item.correo}} </td>
+                      <td> {{item.cantidad}} </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+      <div class="d">
+          <div  id="content" #content>
+              <canvas id="myChart" class="tt" style="width:100%;max-width:700px;height:100%;max-height:400px"></canvas>
+          </div>
+          
+      </div>
+      </div>
+      </div>
+      <button class="btn btn-primary" (click) = "makePDF()" >CREAR PDF</button>

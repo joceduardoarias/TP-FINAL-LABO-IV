@@ -1,0 +1,38 @@
+.tamaño
+{
+    min-height: 300px;
+    min-width: 400px;
+    background-color:antiquewhite;
+    border-radius: 20px;
+}
+.general
+{
+    min-height: 100vh;
+    background-image: url("../../../../assets/clinica.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.btn-circle.btn-xl {
+    width: 140px;
+    height: 140px;
+    padding: 10px 16px;
+    border-radius: 100px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+.e
+{
+    height: 150px;
+    width: 150px;
+}
+img
+{
+    border: 2px solid red;
+}
+img:hover
+{
+    border: 5px solid black;
+}
+
+

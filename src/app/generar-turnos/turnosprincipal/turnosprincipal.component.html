@@ -1,0 +1,3 @@
+<app-elegir-especialidad (especialidad) = "recibir($event)" *ngIf="boolespecialidad"></app-elegir-especialidad>
+<app-elegir-especialista [usuarios] = "usuarios" (obj) = "objectomodificar($event)" *ngIf="boolespecialista"></app-elegir-especialista>
+<app-elegir-horarios [objectoActual] = "objbuscar" *ngIf="boolhorarios"></app-elegir-horarios>

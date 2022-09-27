@@ -1,0 +1,77 @@
+
+<section class="gradient-form" class = "lenn">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-xl-11">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0 b">
+            <div class="col-lg-6">
+              <div class="card-body p-md-4 mx-md-4">
+
+              
+                <div class="text-center">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                    style="width: 185px;" alt="logo">
+                  <h4  appNegrita appCambiartamanio class="mt-1 mb-5 pb-1">Equipo Médico</h4>
+                </div>
+         
+                  <div class="form-outline mb-4 fet ">
+                    <label  class="form-label" for="form2Example11">Username</label>
+                    <input type="email" id="form2Example11" class="form-control letrageneral" id="email" [(ngModel)]="correo"
+                      placeholder="usuario@usuario.com" />
+                      <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('pattern') && formGroup.get('email')?.touched">Formato inválido.</small>
+                  </div>
+
+                  <div class="form-outline mb-4 fet">
+                    <label class="form-label" for="form2Example22">Password</label> 
+                    <input type="password" id="form2Example22" class="form-control letrageneral" id="password"  placeholder="Password" [(ngModel)]="contrasenia" />
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">La contraseña es requerido</small>
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('caracter') && formGroup.get('password')?.touched">Error. Tiene menos de 6 caracateres</small>
+                  </div>
+
+                  <div class="text-center">
+                    <button *ngIf="sp == false" class="btn btn-primary btn-block grad mb-3 letrageneral" (click) = "ingresar()" >
+                      INGRESAR</button>
+                      <div class="spinner-border fa-lg  mb-4 letrageneral " role="status" *ngIf="sp == true">
+   
+                      </div>
+                  </div>
+                  <!-- <div class="row">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                      <button class="btn btn-primary" (click) = "autocompletar('admin@admin.com')">ADMINISTRADOR</button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                      <button class="btn btn-secondary"(click) = "autocompletar('hernannvilar@gmail.com')">ESPECIALISTA1</button>
+                      <button class="btn btn-warning" (click) = "autocompletar('kilota3241@krunsea.com')">ESPECIALISTA2</button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center ">
+                      <button class="btn btn-danger" (click) = "autocompletar('sakir29583@musezoo.com')">PACIENTE1</button>
+                      <button class="btn btn-success" (click) = "autocompletar('hernan-vilar@hotmail.com')">PACIENTE2</button>
+                      <button class="btn btn-dark" (click) = "autocompletar('sayasof742@musezoo.com')">PACIENTE3</button>
+                    </div>
+                  </div> -->
+           <div class="d-flex justify-content-end align-items-center me-5">   
+          <div class="dropdown">
+            <img [src]="this.img1" class="iconDrop" alt="Imagen ilustrativa de usuario">
+            <div class="dropdown-content">
+            <div class="option" (click) = "autocompletar('admin@admin.com')">Administrador</div>
+            <div class="option" (click) = "autocompletar('hernannvilar@gmail.com')">Especialista1</div>
+            <div class="option" (click) = "autocompletar('kilota3241@krunsea.com')">Especialista2</div>
+            <div class="option" (click) = "autocompletar('hernan-vilar@hotmail.com')"  >Paciente1</div>
+            <div class="option" (click) = "autocompletar('sakir29583@musezoo.com')"  >Paciente2</div>
+            <div class="option" (click) = "autocompletar('sayasof742@musezoo.com')"  >Paciente3</div>
+          </div>
+        </div> 
+          </div>
+
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2 justify-content-center align-items-center">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

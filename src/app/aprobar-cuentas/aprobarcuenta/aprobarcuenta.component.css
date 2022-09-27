@@ -1,0 +1,21 @@
+.general
+{
+    min-height: 100vh;
+}
+.segundogeneral
+{
+    min-height: 300px;
+    min-width: 50%;
+    border-radius: 10px;
+    border: solid 2px red;
+}
+td:hover
+{
+    background-color:aquamarine;
+}
+.wii
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

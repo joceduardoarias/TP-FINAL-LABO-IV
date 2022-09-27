@@ -1,0 +1,66 @@
+#div
+{
+    display: inline-block;
+    height: 100%;
+}
+img
+{
+    height: 300px;
+    width: 500px;
+}
+#cuadrado
+{
+    display: inline-block;
+    min-height: 200px;
+    animation-name: mianimacion;
+    animation-duration: 3s;
+    position:relative;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+}
+@keyframes mianimacion
+{
+    0%{left: 0;top:10vh;}
+    20%{left: 0;top:20vh;}
+    40%{left: 0;top:40vh;}
+    60%{left: 0;top:60vh;}
+    80%{left: 0;top:80vh;}
+    100%{left: 0;top:100vh;}
+}
+#cua
+{
+    display: inline-block;
+    min-height: 200px;
+    animation-name: mil;
+    animation-duration: 3s;
+    position:relative;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+}
+@keyframes mil
+{
+    0%{left: 0px;top:10vh;}
+    20%{left: 50px;top:20vh;}
+    40%{left: 100px;top:40vh;}
+    60%{left: 200px;top:60vh;}
+    80%{left: 300px;top:80vh;}
+    100%{left: 400px;top:100vh;}
+}
+.tt
+{
+    width: 600px;
+}
+
+.borde
+{
+    border: solid 5px red;
+}
+.im
+{
+    width: 50px;
+    height: 50px;
+}
+span
+{
+    margin-right: 15px;
+}

@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center align-items-center">
+
+    <div>
+      <div *ngFor="let item of lista2">
+        <button (click) = "disparo(item)" class="btn btn-primary">{{item}}</button>
+      </div>
+    </div>
+    
+  </div>
+
+
+<div *ngIf="activo" class="d-flex justify-content-center align-items-center">
+    <div class="d-flex  tt" >
+      <input class="form-control me-2" type="search" placeholder="Search" value="dasd"  aria-label="Search" [(ngModel)]="b">
+      <button class="btn btn-outline-success" (click) = "hacerBusqueda()" type="button">Search</button>
+      <button class="btn btn-outline-warning" type="button" (click) = "limpiar()">Limpiar</button>
+    </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+    
+     <div #content  *ngIf="activo">
+      <div class="d-flex justify-content-center align-items-center">
+       <div class="d-flex justify-content-between align-items-center taca">
+         <img class="im" src="../../../assets/imagennnn2.png" alt="">
+         <span>{{auth.correologeado}}</span>
+         <span>{{fecha}}</span>
+        </div>
+      </div>
+        <div class="d-flex justify-content-center align-items-center">
+                      <table class="table tt borde" *ngIf="historiaclinicaa != null">
+                      <thead>
+                      <tr>
+                        <th scope="col">Altura</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Presion</th>
+                        <th scope="col">Temperatura</th>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">val1</th>
+                        <th scope="col">val2</th>
+                        <th scope="col">val3</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let item of historiaclinicaa " >
+                          <td >{{item.altura}} </td>
+                          <td >{{item.peso}} </td>
+                          <td >{{item.presion}} </td>
+                          <td >{{item.temepratura}} </td>
+                          <td >{{item.dia}} </td>
+                          <td >{{item.hora}}:{{item.minutos}} </td>
+                          <td >{{item.valor1}} </td>    
+                          <td >{{item.valor2}} </td>
+                          <td >{{item.valor3}} </td>
+                      </tr>
+                      </tbody>
+    
+                      </table>
+                    </div>
+                            
+                   
+    
+                    <div class="d-flex justify-content-center align-items-center">
+                      <button *ngIf="activo" class="btn btn-primary" (click) = "makePDF()" >CREAR PDF</button>
+                    </div>
+    
+                  </div>
+    
+                </div>
+    

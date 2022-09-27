@@ -1,0 +1,34 @@
+<div class="general d-flex justify-content-center align-items-center">
+    <div class="segundogeneral">
+        <div class="table-responsive">
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Aceptar</th>
+                  <th scope="col">Rechazar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of list; let i = index">
+                  <th >{{i}}</th>
+                  <td>{{item.email}} </td>
+                  <td (click) = "aceptar(item)">
+                      <i class="fa-solid fa-check"></i>
+                  </td>
+                  <td (click) = "rechazar(item)">
+                    <i class="fa-solid fa-xmark"></i>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+            <div class="wii" *ngIf="list.length == 0">
+              <td>No hay ningun especialista para aprobar/rechazar.</td>
+            </div>
+
+      </div>
+    
+    </div>
+</div>

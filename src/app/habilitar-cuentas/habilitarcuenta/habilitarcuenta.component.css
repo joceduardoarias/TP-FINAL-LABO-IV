@@ -1,0 +1,39 @@
+.general
+{
+    min-height: 100vh;
+}
+.segundogeneral
+{
+    min-height: 300px;
+    min-width: 50%;
+    border-radius: 10px;
+    border: solid 2px red;
+}
+td:hover
+{
+    background-color:aquamarine;
+}
+img
+{
+    width: 50px;
+    height: 50px;
+}
+#cuadrado
+{
+    display: inline-block;
+    min-height: 200px;
+    animation-name: mianimacion;
+    animation-duration: 3s;
+    position:relative;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+}
+@keyframes mianimacion
+{
+    0%{left: 0;top:10vh;}
+    20%{left: 0;top:20vh;}
+    40%{left: 0;top:40vh;}
+    60%{left: 0;top:60vh;}
+    80%{left: 0;top:80vh;}
+    100%{left: 0;top:100vh;}
+}

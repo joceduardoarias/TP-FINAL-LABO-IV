@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center align-items-center">
+  <h2>Cantidad de turnos por dia</h2>
+</div>
+
+<div class="d">
+<div id="content" #content>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <table class="table m">
+        <thead>
+          <tr>
+            <th scope="col">Dia</th>
+            <th scope="col">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of list">
+            <tr>
+            <td> {{item.dia}} </td>
+            <td> {{item.cantidad}} </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+<div class="d">
+    <div class="d-flex justify-content-center align-items-center">
+        <canvas id="m" class="tt" style="width:100%;max-width:700px;height:100%;max-height:400px"></canvas>
+    </div>
+    
+</div>
+</div>
+</div>
+<button class="btn btn-primary" (click) = "makePDF()" >CREAR PDF</button>

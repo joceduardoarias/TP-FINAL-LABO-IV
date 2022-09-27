@@ -1,0 +1,65 @@
+<div>
+    <div *ngIf="auth.paciente == true">
+     <app-turnopaciente></app-turnopaciente>
+
+      </div>
+
+
+      <div class="row  py-4" *ngIf="auth.especialista == true">
+      <app-turnoespecialista></app-turnoespecialista>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="row  py-4" *ngIf="auth.administrador == true">
+        <app-turnoadministrador></app-turnoadministrador>
+  
+        </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

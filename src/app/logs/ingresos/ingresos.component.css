@@ -1,0 +1,31 @@
+table
+{
+    width: 50%;
+}
+#cua
+{
+    display: inline-block;
+    min-height: 200px;
+    animation-name: mil;
+    animation-duration: 3s;
+    position:relative;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+}
+@keyframes mil
+{
+    0%{right: 0px;bottom:10vh;}
+    20%{right: 50px;bottom:20vh;}
+    40%{right: 100px;bottom:40vh;}
+    60%{right: 200px;bottom:60vh;}
+    80%{right: 300px;bottom:80vh;}
+    100%{right: 400px;bottom:100vh;}
+}
+.fle
+{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

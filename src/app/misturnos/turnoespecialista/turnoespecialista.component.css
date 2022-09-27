@@ -1,0 +1,48 @@
+.general
+{
+    min-height: 70vh;
+}
+.segundogeneral
+{
+   
+    min-width: 50%;
+    border-radius: 10px;
+    border: solid 2px red;
+}
+td:hover
+{
+    background-color:aquamarine;
+}
+.wii
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tam
+{
+    max-width: 200px;
+}
+.tt
+{
+    width: 600px;
+}
+#cuadrado
+{
+    display: inline-block;
+    min-height: 200px;
+    animation-name: mianimacion;
+    animation-duration: 3s;
+    position:relative;
+    animation-direction: reverse;
+    animation-timing-function: linear;
+}
+@keyframes mianimacion
+{
+    0%{right: -10vh;top:0}
+    20%{right: -20vh;top:0}
+    40%{right: -40vh;top:0}
+    60%{right: -60vh;top:0}
+    80%{right: -80vh;top:0}
+    100%{right: -100vh;top:0}
+}

@@ -1,0 +1,13 @@
+img
+{
+    display: block;
+    height: 100px;
+    width: 103px;
+}
+.c
+{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

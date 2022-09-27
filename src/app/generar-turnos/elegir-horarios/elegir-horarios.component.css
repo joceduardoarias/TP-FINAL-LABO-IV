@@ -1,0 +1,26 @@
+.d
+{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bb
+{
+    width: 90px;
+ 
+}
+.efe
+{
+   min-height: 50px;
+}
+#ep
+{
+    display: block;
+    margin-right: 50px;
+}
+.pp
+{
+    padding-right: 200px;
+}
+

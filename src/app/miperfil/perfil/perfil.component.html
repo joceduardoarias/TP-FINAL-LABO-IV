@@ -1,0 +1,155 @@
+<div >
+            <div class="row container py-4" *ngIf="cargo && auth.paciente == false">
+                <div class="col-md-6">
+                  <div class="">
+                    
+                    <img [src]="datoUsuario.imagen" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6" >
+                  <div class="h-100 p-5 bg-light border rounded-3">
+                    <h1>DATOS USUARIO</h1>
+                    <span>Nombre: {{datoUsuario.nombre}} </span>
+                    <br>
+                    <span>Apellido: {{datoUsuario.apellido}}</span>
+                    <br>
+                    <span>Edad: {{datoUsuario.edad}}</span>
+                    <br>
+                    <span>DNI: {{datoUsuario.dni}}</span>
+                    <br>
+                    <span>Perfil: {{datoUsuario.perfil}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row  py-4" *ngIf="cargo && auth.paciente == true">
+                <div class="col-md-4">
+                  <div class="">
+                    
+                    <img [src]="datoUsuario.imagen" alt="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="">
+                    
+                    <img [src]="datoUsuario.imagen2" alt="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="h-100 p-5 bg-light border rounded-3">
+                    <h1>DATOS USUARIO</h1>
+                    <span>Nombre: {{datoUsuario.nombre}} </span>
+                    <br>
+                    <span>Apellido: {{datoUsuario.apellido}}</span>
+                    <br> 
+                    <span>Edad: {{datoUsuario.edad}}</span>
+                    <br>
+                    <span>DNI: {{datoUsuario.dni}}</span>
+                    <br>
+                    <span>Perfil: {{datoUsuario.perfil}}</span>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <div>
+                    <div class="d-flex justify-content-center align-items-center">
+                      
+                     <h2>Historia Clínica</h2>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+
+                      <div class="d-flex tt">
+                        <input class="form-control me-2" type="search" placeholder="Search" value="dasd"  aria-label="Search" [(ngModel)]="b">
+                        <button class="btn btn-outline-success" (click) = "hacerBusqueda()" type="button">Search</button>
+                        <button class="btn btn-outline-warning" type="button" (click) = "limpiar()">Limpiar</button>
+                      </div>
+                      
+                      
+                      </div>
+                      <div id="content" #content>
+                        
+                        <div class="d-flex justify-content-between align-items-center ">
+                          <img class="im" src="../../../assets/imagennnn2.png" alt="">
+                          <span>{{auth.correologeado}}</span>
+                          <span>{{fecha}}</span>
+                        </div>
+                  <table class="table text-center tt borde" *ngIf="historiaclinicaa != null">
+                  <thead>
+                  <tr>
+                    <th scope="col">Altura</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Presion</th>
+                    <th scope="col">Temperatura</th>
+                    <th scope="col">Dia</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">val1</th>
+                    <th scope="col">val2</th>
+                    <th scope="col">val3</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let item of historiaclinicaa " >
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.altura}} </td>
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.peso}} </td>
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.presion}} </td>
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.temepratura}} </td>
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.dia}} </td>
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.hora}}:{{item.minutos}} </td>
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.valor1}} </td>    
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.valor2}} </td>
+                      <td *ngIf="item.correopaciente == auth.correologeado">{{item.valor3}} </td>
+                  </tr>
+                  </tbody>
+                  </table>
+                
+                </div>
+                <button class="btn btn-primary" (click) = "makePDF()" >CREAR PDF</button>
+                  </div>
+              </div>
+            </div>
+    
+              <div class="col-6" *ngIf="auth.especialista">
+        
+                <form class="row" >
+                  <div class="col-6">
+                    <p>Dias disponible:</p>
+                    <ul>
+                      <li>
+                        Lunes <input type="checkbox" (click) = "dias('lunes')">
+                      </li>
+                      <li>
+                        Martes <input type="checkbox" (click) = "dias('martes')">
+                      </li>
+                      <li>
+                        Miercoles <input type="checkbox" (click) = "dias('miercoles')">
+                      </li>
+                      <li>
+                        Jueves <input type="checkbox" (click) = "dias('jueves')">
+                      </li>
+                      <li>
+                        Viernes <input type="checkbox" (click) = "dias('viernes')">
+                      </li>
+                      <li>
+                        Sabado <input type="checkbox" (click) = "dias('sabado')" >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <label for="dni" class="form-label">Horario disponible</label>
+                      <select class="form-control" id="select">
+                        <option value="">Seleccione uno</option>
+                        <option value="todo">Jornada completa (8:00 - 19:00)</option>
+                        <option value="maniana">Mañana (8:00 - 12:00)</option>
+                        <option value="tarde">Tarde (12:00 - 19:00)</option>
+                      </select>
+                      <label for="dni" class="form-label">Horario disponible</label>
+                      <select class="form-control" id="select2">
+                        <option *ngFor="let item of datoUsuario.especialidades" [value]="item">{{item}}</option>
+                      </select>
+                  </div>
+                  
+                  <button type="button" (click) = "enviar()" class="btn btn-primary btn-block">
+                    Confirmar Horarios
+                  </button>
+                </form>
+              </div>
+        
+</div>

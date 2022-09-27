@@ -1,0 +1,110 @@
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  }
+  .letrageneral
+{
+  font-size: 16px;
+}
+  .marginabajo
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .lenn
+  {
+    min-height: 100vh;
+    font-size: 18px;
+    background-image: url("../../../../assets/clinica.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  @media (min-width: 768px) {
+  .gradient-form {
+  height: 100vh !important;
+  }
+  }
+  @media (min-width: 769px) {
+  .gradient-custom-2 {
+      background: url("https://st4.depositphotos.com/3662505/20756/i/600/depositphotos_207561022-stock-photo-stethoscope-and-pills-on-table.jpg");
+      color: #fff;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+      
+  }
+  .grad
+  {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  }
+  }
+  .po
+  {
+    height: 200px;
+  }
+  .fet {
+      height: 70px;
+    }
+  .invalid {
+    color: red;
+   }
+   .b
+   {
+     border: solid 2px black;
+     min-height: 99vh;
+   }
+   .dropdown {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img.iconDrop {
+    width: 112%;
+}
+
+img.iconDrop:hover {
+    cursor: pointer;
+}
+div.option{
+  width: 100%;
+  text-align: center;
+}
+
+div.option:hover{
+  transform: scale(1.2);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 6px 11px;
+  z-index: 1;
+  font-size: .6em;
+  margin-left: 8%;
+  margin-top: 4%;
+  border-radius: 5px;
+  border: solid 1px black;
+}
+
+.dropdown:hover .dropdown-content {
+    cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}

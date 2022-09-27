@@ -1,0 +1,241 @@
+<!-- <div class="tricito">
+    <body>
+        <div class="mar"  id="advanced-search-form">
+            <div class="divespecial">
+                <div class="sinuso">
+                    
+                </div>
+                <h1>Registro Especialista</h1>
+                <img (click) = "atras()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXeWHsD5JKxLV3V3Y1tUmGmCBt0Tl_IDersQ&usqp=CAU" alt="">
+            </div>
+            <form [formGroup] = "formGroup" (ngSubmit) = "aceptar()">
+                <div class="col-xs-12 col-md-6 col-lg-4   fet">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName= "nombre">
+                    <small class="invalid" *ngIf = "formGroup.get('nombre')?.hasError('required') && formGroup.get('nombre')?.touched">El nombre es requerido</small>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4 fet">
+                    <label for="Apellido">Apellido</label>
+                    <input type="text" class="form-control" placeholder="Apellido" id="Apellido" formControlName= "apellido">
+                    <small class="invalid" *ngIf = "formGroup.get('apellido')?.hasError('required') && formGroup.get('apellido')?.touched">El apellido es requerido</small>
+                </div> 
+                <div class="col-xs-12 col-md-6 col-lg-4 fet">
+                    <label for="edad">Edad</label>
+                    <input type="number" class="form-control" placeholder="Edad" id="edad" formControlName= "edad">
+                    <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('required') && formGroup.get('edad')?.touched">La edad es requerida</small>
+                    <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('min') || formGroup.get('edad')?.hasError('max') && formGroup.get('edad')?.touched">La edad debe  ser entre.. 18 y 90 años</small>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4 fet">
+                    <label for="dni">DNI</label>
+                    <input type="number" class="form-control" placeholder="Dni" id="dni" formControlName= "dni">
+                    <small class="invalid" *ngIf = "formGroup.get('dni')?.hasError('required') && formGroup.get('dni')?.touched">El DNI es requerido</small>
+                </div> 
+                <div class="col-xs-12 col-md-6 col-lg-4 fet">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" id="password" formControlName= "password">
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">La contraseña es requerido</small>
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('caracter') && formGroup.get('password')?.touched">Error. Tiene menos de 6 caracateres</small>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4 fet">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="Email" id="email" formControlName= "email">
+                    <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('required') && formGroup.get('email')?.touched">El Text es requerido</small>
+                    <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('pattern') && formGroup.get('email')?.touched">Formato inválido.</small>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4 fet">
+                    <label class="labelcito" for="agregar">Agregar Especalidad</label>
+                    <div class="juntar">
+                    <input class="form-control" type="text" placeholder="Agregar"  id="agregar">
+                    <img (click) = "agregar()" class="iimg"  src="https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-plus-icon-png-image_515260.jpg" alt="">
+                   </div> 
+                </div> 
+                <div class="col-xs-12 col-md-6 col-lg-4 fet">
+                    <label for="select" class="form-label" > Seleccionar especialidad</label>
+                    <div class="juntar">
+                    <select class="form-select" id="select" formControlName= "especialidad">
+                        <option *ngFor="let item of list" [value]="item">{{item}}</option>
+                    </select>   
+                    <img (click) = "borrar()"  class="iimg" src="https://thumbs.dreamstime.com/z/completamente-alrededor-de-icono-rojo-del-signo-menos-bot%C3%B3n-s%C3%ADmbolo-negativo-aislado-en-el-fondo-blanco-vector-eps-143476703.jpg" alt="">
+                   </div>
+                    <small class="invalid concreto" *ngIf = "formGroup.get('especialidad')?.hasError('required') && formGroup.get('especialidad')?.touched">La seleccion de especialista es requerida</small>
+                  </div>
+                <div class="col-xs-12 col-md-12 col-lg-4 fet divtama">
+                    <input  type="file" accept=".png, .jpg, .jpeg" multiple (change) = "cargarImagen($event)" formControlName="inputFile"  id="inputFile">
+                    <label class="labelInputFile" for="inputFile">IMAGEN </label>
+                    <small class="invalid" *ngIf = "formGroup.get('inputFile')?.hasError('required') && formGroup.get('inputFile')?.touched">El archivo es requerido</small>
+                </div>
+                <div class="clearfix"></div>
+                <button type="submit" class="btn btn-info btn-lg btn-responsive botonPrincipal" [disabled] = "formGroup.invalid" id="search">REGISTRAR</button>
+            </form>
+        </div>
+    </body>
+    </div> 
+ 
+    
+     -->
+<div class="general">
+<div class="particular">
+    <form [formGroup] = "formGroup" (ngSubmit) = "aceptar()">
+        <div class="d-flex justify-content-center aligns-items-center">
+            <h2 >ALTA ESPECIALISTA</h2>
+        </div>
+     <div class="row">
+        <div class="col">
+          <!-- Name input -->
+          <div class="form-outline  fet">
+            <div class="centro">
+              <label for="nombre" class="form-label">Nombre</label>
+            </div>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName= "nombre">
+            <div class="tete">
+                <small class="invalid" *ngIf = "formGroup.get('nombre')?.hasError('required') && formGroup.get('nombre')?.touched">El nombre es requerido</small>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Apellido input -->
+          <div class="form-outline fet">
+            <div class="centro">
+              <label for="Apellido"  class="form-label">Apellido</label>
+            </div>
+            <input type="text" class="form-control" placeholder="Apellido" id="Apellido" formControlName= "apellido">
+            <div class="tete">
+                <small class="invalid" *ngIf = "formGroup.get('apellido')?.hasError('required') && formGroup.get('apellido')?.touched">El apellido es requerido</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <!-- Apellido input -->
+          <div class="form-outline fet">
+            <div class="centro">
+              <label for="email" class="form-label">Email</label>
+            </div>
+                    <input type="email" class="form-control" placeholder="Email" id="email" formControlName= "email">
+                    <div class="tete">
+                        <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('required') && formGroup.get('email')?.touched">El Text es requerido</small>
+                        <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('pattern') && formGroup.get('email')?.touched">Formato inválido.</small>
+                    </div>
+          </div>
+        </div>
+      </div>
+      
+      <hr />
+      
+      <div class="row">
+        <div class="col">
+          <!-- Name input -->
+          <div class="form-outline fet">
+            <div class="centro">
+              <label for="edad">Edad</label>
+            </div>
+            <input type="number" class="form-control" placeholder="Edad" id="edad" formControlName= "edad">
+            <div class="tete">
+                <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('required') && formGroup.get('edad')?.touched">La edad es requerida</small>
+                <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('min') || formGroup.get('edad')?.hasError('max') && formGroup.get('edad')?.touched">La edad debe  ser entre.. 18 y 90 años</small>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Name input -->
+          <div class="form-outline fet">
+            <div class="centro">
+              <label for="dni">DNI</label>
+            </div>
+            <input type="number" class="form-control" placeholder="Dni" id="dni" formControlName= "dni">
+            <div class="tete">
+                <small class="invalid" *ngIf = "formGroup.get('dni')?.hasError('required') && formGroup.get('dni')?.touched">El DNI es requerido</small>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Email input -->
+          <div class="form-outline fet">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" placeholder="Password" id="password" formControlName= "password">
+            <div class="tete">
+                <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">La contraseña es requerido</small>
+                <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('caracter') && formGroup.get('password')?.touched">Error. Tiene menos de 6 caracateres</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col">
+          <!-- Name input -->
+          <div class="form-outline fet">
+            <div class="centro">
+
+              <label class="labelcito espacioespecial" for="agregar">Agregar</label>
+            </div>
+            <div class="juntar">
+            <input class="form-control" type="text" placeholder="Especalidad"  id="agregar">
+            <img (click) = "agregar()" class="iimg"  src="https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-plus-icon-png-image_515260.jpg" alt="">
+           </div> 
+                
+          </div>
+        </div>
+        <div class="col">
+          <!-- Apellido input -->
+          <div class="form-outline fet">
+            <div class="centro">
+
+              <label for="select" class="form-label" >Especialidad</label>
+            </div>
+            <div class="juntar">
+            <select class="form-select" id="select" formControlName= "especialidad" (change) = "cambiar()">
+                <option *ngFor="let item of list" [value]="item">{{item}}</option>
+            </select>   
+            <img (click) = "borrar()"  class="iimg" src="../../../assets/eliminar.jpg" alt="">
+           </div>
+           <div class="tete">
+               <small class="invalid concreto" *ngIf = "formGroup.get('especialidad')?.hasError('required') && formGroup.get('especialidad')?.touched">Especialista requerida</small>
+           </div>
+                
+          </div>
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-6  fet divtama">
+            <input  type="file" accept=".png, .jpg, .jpeg" multiple (change) = "cargarImagen($event)" formControlName="inputFile"  id="inputFile">
+            <label class="labelInputFile" for="inputFile">IMAGEN </label>
+            <div class="tete">
+                <small class="invalid" *ngIf = "formGroup.get('inputFile')?.hasError('required') && formGroup.get('inputFile')?.touched">El archivo es requerido</small>   
+            </div>
+        </div>
+        <div class="col-6 fet listadoEsp" >
+          <p class="titEsp">Listado</p>
+          <div class="mm" #scrollMe >
+          <div class="espItem" *ngFor="let item of listoriginal" >
+            <div class="ddd">
+              <span class="nombreEsp">{{item}}</span>
+              <i class="fa-solid fa-ban" (click) = "borrar2(item)" ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="row" *ngIf="desactivar == false">
+      <div class="col-6">
+        <input class="form-control mt-3" id="display" value={{capcha}} disabled>
+      </div>
+
+      <div class="col-6">
+        <input  invalid class="form-control mt-3" id="entrada" autocomplete="doNotAutoComplete"
+          formControlName="capchaInput" [(ngModel)]="cap" placeholder="Escriba el codigo"  >
+          <span class="form-control mt-3" id="mensaje" *ngIf="(!(cap == capcha)) && formGroup.get('capchaInput')?.touched ">  Capcha INCORRECTO ❌</span>
+      </div>
+
+
+      
+    </div>
+      <div class="row margintop">
+          <button type="submit" class="btn btn-info btn-lg btn-responsive botonPrincipal" [disabled] = "formGroup.invalid || (capcha != cap)" id="search">REGISTRAR</button>
+          <button type="button" (click) = "deshabilitado()">CANCELAR_CAPTCHA</button>
+      </div>
+      
+      </form>
+    </div>
+
+    </div>

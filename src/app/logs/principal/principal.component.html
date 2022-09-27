@@ -1,0 +1,36 @@
+<div class="principal">
+    <div>
+   
+<div class="principall">
+    <div>
+        <button class="btn btn-primary" (click) = "clickeado('ingresos')">Ingresos al sistema</button>
+        <button class="btn btn-primary" (click) = "clickeado('turnosespecialidad')">Cantidad turnos por especialidad</button>
+    </div>
+    
+</div>
+<div class="principall">
+
+    <div>
+        <button class="btn btn-primary" (click) = "clickeado('turnosdia')">Cantidad turnos por dia</button>
+        <button class="btn btn-primary" (click) = "clickeado('turnossolicitadolapso')">Turnos solicitados por medico x tiempo</button>
+        <button class="btn btn-primary" (click) = "clickeado('turnosfiinalizadolapso')">Turnos finalizados por medico x tiempo</button>
+    </div>
+</div>
+</div>
+</div>
+
+<div *ngIf="ingresos">
+    <app-ingresos></app-ingresos>
+</div>
+<div *ngIf="cantturnos">
+    <app-cantturnosespecialidad></app-cantturnosespecialidad>
+</div>
+<div *ngIf="cantturnosdia">
+    <app-cantturnosdia></app-cantturnosdia>
+</div>
+<div *ngIf="turnostiempo">
+<app-turnosolicitadolapso></app-turnosolicitadolapso>
+</div>
+<div *ngIf="turnostiempofinalizados">
+<app-turnofinalizadolapso></app-turnofinalizadolapso>
+</div>

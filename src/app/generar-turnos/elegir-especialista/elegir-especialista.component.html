@@ -1,0 +1,10 @@
+<div class="container c">
+    <div  *ngFor="let item of usuarios">
+        <div class="card" style="width: 10rem;">
+            <img [src]="item.imagen" class="card-img-top" alt="...">
+            <div class="">
+                <button (click) = "accion(item)" class="btn btn-primary">{{item.nombre}}</button>
+            </div>
+          </div>
+    </div>
+</div>

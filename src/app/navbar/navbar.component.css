@@ -1,0 +1,49 @@
+#pepe
+{
+  color: white;
+}
+nav
+{
+  margin-bottom: 0%;
+  margin-top: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  min-height: 44px;
+}
+#navbarText
+{
+  min-height: 100%;
+}
+#blanquito
+{
+  background-color: white;
+}
+  a
+  {
+      margin: 0%;
+      padding: 0%;
+    height: 100%;
+    margin-right: 5px;
+    font-size: 22px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  a:hover
+  {
+    background-color: gray;
+  }
+  .esa
+  {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     cursor: pointer; 
+     min-width: 90px;
+     min-height: 48px;
+     text-align: center;
+     margin-bottom: 0;
+  }
+  .ancho
+  {
+    width: 100%;
+  }
+ 

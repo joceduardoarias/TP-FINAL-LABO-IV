@@ -1,0 +1,188 @@
+.tricito{
+    background-image: url("https://previews.123rf.com/images/sashazerg/sashazerg1605/sashazerg160500053/56812023-hospitalario-y-sanitario-los-pacientes-en-espera-para-el-m%C3%A9dico-.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+body{
+    background:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+#advanced-search-form{
+    opacity: 0.95;
+    filter: alpha(opacity=50);
+    zoom: 1;
+    background-color:aqua;
+    width: 900px;
+    height: 500px;
+    padding: 40px;
+    color: #2f3233;
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
+}
+
+#advanced-search-form h2{
+    padding-bottom: 20px;
+    margin: 10px 20px;
+    font-size: 24px;
+}
+
+#advanced-search-form hr{
+    margin-top: 38px;
+    margin-bottom: 54px;
+    margin-left:3px;
+    border: 1px solid #cccccc;
+
+}
+
+#advanced-search-form .form-group{
+	margin-bottom: 20px;
+    margin-left:20px;
+	width: 30%;
+    float:left;
+    text-align: left;
+}
+
+#advanced-search-form .form-control{
+    padding: 12px 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+#advanced-search-form .radio-inline{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#advanced-search-form .gender{
+    width: 30%;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#advanced-search-form .btn{
+    width: 46%;
+    margin: 20px auto 0;
+    display: block;
+    outline: none;
+}
+
+@media screen and (max-width: 800px){
+    #advanced-search-form .form-group{
+        width: 45%;
+    }
+
+    #advanced-search-form{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 560px){
+    #advanced-search-form .form-group{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #advanced-search-form h2{
+        text-align: center;
+    }
+}
+.invalid {
+    color: red;
+}
+input
+{
+    font-size: 15px;
+    padding: 12px 20px;
+
+}
+.botonPrincipal
+{
+    font-size: 20px;
+}
+.container {
+    max-width: 700px;
+    padding: 60px;
+    background-color: papayawhip;  /* fallback for old browsers */
+    /* SHADOW */
+    -webkit-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 31px -5px rgba(0,0,0,0.75);
+}
+
+.fet {
+    height: 95px;
+} 
+/* h1
+{
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+} */
+.divespecial
+{
+    display: flex;
+    justify-content: space-between;
+}
+img
+{
+    height: 50px;
+    width: 80px;
+
+}
+.sinuso
+{
+    width: 80px;
+}
+.swal-wide{
+    width:850px;
+    height: 850px;
+}
+#inputFile
+{
+    display: none;
+}
+#inputFile2
+{
+    display: none;
+}
+.labelInputFile
+{
+    position: absolute;
+    width: 7rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 100%;
+    padding: 1rem;
+    box-shadow: 0 0 10px -1px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+}
+.labelInputFile img
+{
+    width: 4rem;
+    height: 4rem;
+}
+.labelInputFile:active
+{
+    transform: scale(0.9);
+}
+.e 
+{
+    display: flex;
+    justify-content: center;
+}
+
+

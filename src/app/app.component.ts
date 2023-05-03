@@ -16,10 +16,10 @@ export class AppComponent {
     private spinner: NgxSpinnerService,
     private translate: TranslateService
   ) {
-    translate.addLangs(['es', 'en', 'pt']);
+   this.translate.addLangs(['es', 'en', 'pt']);
     const lang = translate.getBrowserLang();
     if (lang.match(/es|en|pt/)) {
-      translate.setDefaultLang('en');
+     this.translate.setDefaultLang('es');
     }
   }
   title = 'tpfinal';

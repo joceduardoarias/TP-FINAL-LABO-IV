@@ -27,11 +27,11 @@
        
          </span>
         <div class="navbar-nav" id="navbarText">
-          <a  class="navbar-brand esa" *ngIf="auth.estalogeado == false" id="pepe" [routerLink]="['/ingreso/login']"  >Login </a>
-          <a  class="navbar-brand esa" *ngIf="auth.estalogeado == false"  id="pepe" [routerLink]="['/ingreso/registrar']"  >Registro</a>
-          <a  *ngIf="(auth.estalogeado == true && (auth.especialista || auth.paciente))"  class="navbar-brand esa"  id="pepe" >Mis Turnos</a>
-          <a  *ngIf="auth.estalogeado == true && auth.administrador"  class="navbar-brand esa"  id="pepe" >Mis Horarios</a>
-          <a (click) = "cerrar()" *ngIf="auth.estalogeado == true"  class="navbar-brand esa"  id="pepe" >LogOut</a>
+          <a  class="navbar-brand esa" *ngIf="auth.estalogeado == false" id="pepe" [routerLink]="['/ingreso/login']"  >{{'navBar.Login' | translate}} </a>
+          <a  class="navbar-brand esa" *ngIf="auth.estalogeado == false"  id="pepe" [routerLink]="['/ingreso/registrar']"  >{{'navBar.Register' | translate}}</a>
+          <a  *ngIf="(auth.estalogeado == true && (auth.especialista || auth.paciente))"  class="navbar-brand esa"  id="pepe" >{{'navBar.appointments' | translate}}</a>
+          <a  *ngIf="auth.estalogeado == true && auth.administrador"  class="navbar-brand esa"  id="pepe" >{{'navBar.schedule' | translate}}</a>
+          <a (click) = "cerrar()" *ngIf="auth.estalogeado == true"  class="navbar-brand esa"  id="pepe" >{{'navBar.Logout' | translate}}</a>
           <app-switchlang></app-switchlang>
       </div>
       </div>

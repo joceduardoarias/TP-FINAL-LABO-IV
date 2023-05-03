@@ -10,7 +10,7 @@ import { AltaPacienteComponent } from '../altas/alta-paciente/alta-paciente.comp
 import { AltaEspecialistaComponent } from '../altas/alta-especialista/alta-especialista.component';
 import { CambiartamanioDirective } from '../directivas/cambiartamanio.directive';
 import { NegritaDirective } from '../directivas/negrita.directive';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -30,7 +30,7 @@ import { NegritaDirective } from '../directivas/negrita.directive';
     FormsModule,
     IngresoRoutingModule,
     ReactiveFormsModule,
-    
+    TranslateModule    
   ],
    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -12,26 +12,26 @@
                 <div class="text-center">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                     style="width: 185px;" alt="logo">
-                  <h4  appNegrita appCambiartamanio class="mt-1 mb-5 pb-1">Equipo Médico</h4>
+                  <h4  appNegrita appCambiartamanio class="mt-1 mb-5 pb-1">{{'login.MedicalEquipment' | translate}}</h4>
                 </div>
          
                   <div class="form-outline mb-4 fet ">
-                    <label  class="form-label" for="form2Example11">Username</label>
+                    <label  class="form-label" for="form2Example11">{{'login.Username' | translate}}</label>
                     <input type="email" id="form2Example11" class="form-control letrageneral" id="email" [(ngModel)]="correo"
                       placeholder="usuario@usuario.com" />
-                      <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('pattern') && formGroup.get('email')?.touched">Formato inválido.</small>
+                      <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('pattern') && formGroup.get('email')?.touched">{{'login.Invalidformat' | translate}}.</small>
                   </div>
 
                   <div class="form-outline mb-4 fet">
-                    <label class="form-label" for="form2Example22">Password</label> 
+                    <label class="form-label" for="form2Example22">{{'login.Password' | translate}}</label> 
                     <input type="password" id="form2Example22" class="form-control letrageneral" id="password"  placeholder="Password" [(ngModel)]="contrasenia" />
-                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">La contraseña es requerido</small>
-                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('caracter') && formGroup.get('password')?.touched">Error. Tiene menos de 6 caracateres</small>
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">{{'login.PasswordRequired' | translate}}</small>
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('caracter') && formGroup.get('password')?.touched">{{'login.Error' | translate}}</small>
                   </div>
 
                   <div class="text-center">
                     <button *ngIf="sp == false" class="btn btn-primary btn-block grad mb-3 letrageneral" (click) = "ingresar()" >
-                      INGRESAR</button>
+                      {{'login.Login' | translate}}</button>
                       <div class="spinner-border fa-lg  mb-4 letrageneral " role="status" *ngIf="sp == true">
    
                       </div>

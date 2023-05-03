@@ -1,0 +1,22 @@
+{
+    "login":{        
+        "Login":"Ingresar",
+        "Email":"Correo",
+        "Password":"Contraseña",
+        "Forgot your password?":"¿Olvidaste tu contraseña?",
+        "Username":"Nombre de usuario",
+        "MedicalEquipment":"Equipo Médico",
+        "Invalidformat": "Formato inválido",
+        "PasswordRequired": "Contraseña requerida",
+        "Error": "Error. Tiene menos de 6 caracteres:"
+    },
+    "navBar":{
+        "Login":"Ingresar",
+        "Register":"Registrarse",
+        "MedicalClinic":"Clinica Medica",
+        "Language":"Idioma",
+        "appointments":"Citas",
+        "schedule":"Horario",
+        "Logout":"Cerrar Sesión"
+    }
+}

@@ -1,5 +1,23 @@
 {
-    "tittle_1": "Medical Equipment",
-    "text_1": "User name",
-    "text_2": "Password"
-}
+    "login": {
+      "Login": "Login",
+      "Email": "Email",
+      "Password": "Password",
+      "Forgot your password?": "Forgot your password?",
+      "Username": "Username",
+      "MedicalEquipment": "Medical Equipment",
+      "Invalidformat": "Invalid format",
+      "PasswordRequired": "Password is required",
+      "Error": "Error. It has less than 6 characters:"
+    },
+    "navBar": {
+      "Login": "Login",
+      "Register": "Register",
+      "MedicalClinic": "Medical Clinic",
+      "Language": "Language",
+      "appointments": "Appointments",
+      "schedule": "Schedule",
+      "Logout": "Logout"
+    }
+  }
+  

@@ -1,0 +1,16 @@
+<div class="dropdown navbar-brand">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+    <img [src]="flag" width="20" height="20" /> {{selectedLanguage}}
+  </button>
+  <div class="dropdown-menu">        
+      <a class="dropdown-item" (click)="selectLanguage('Es', 'https://flagcdn.com/w320/mx.png')">
+        <img src="https://flagcdn.com/w320/mx.png" width="20" height="20" /> Es
+      </a>
+      <a class="dropdown-item" (click)="selectLanguage('En', 'https://flagcdn.com/w320/us.png')">
+        <img src="https://flagcdn.com/w320/us.png" width="20" height="20" /> En
+      </a>
+      <a class="dropdown-item" (click)="selectLanguage('Pt', 'https://flagcdn.com/w320/pt.png')">
+        <img src="https://flagcdn.com/w320/pt.png" width="20" height="20" /> Pt
+      </a>    
+  </div>
+</div>

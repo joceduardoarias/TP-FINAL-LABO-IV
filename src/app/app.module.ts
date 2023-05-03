@@ -23,14 +23,10 @@ import { connectFirestoreEmulator, getFirestore, provideFirestore } from "@angul
 import { Ordenar2Pipe } from './pipes/ordenar2.pipe';
 import { FechaDirectivaDirectiveDirective } from './directivas/fecha-directiva-directive.directive';
 import { LargoMaximoDirective } from './directivas/largo-maximo.directive';
-
-
-
-
-
-
-
-
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { SwitchlangComponent } from './switchlang/switchlang.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +37,7 @@ import { LargoMaximoDirective } from './directivas/largo-maximo.directive';
      HomeComponent,
      CambiarColorDirective,
      Ordenar2Pipe,
+     SwitchlangComponent,
 
   ],
   imports: [
@@ -55,10 +52,23 @@ import { LargoMaximoDirective } from './directivas/largo-maximo.directive';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    
+    // ngx-translate and the loader module
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (http: HttpClient) => { return new TranslateHttpLoader(http, './assets/i18n/', '.json'); },
+          deps: [HttpClient]
+      }
+  })  
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [GuardauthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

@@ -1,0 +1,30 @@
+        
+  /* Change the background color of the dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  button.dropbtn:hover, .dropdown-content li:hover {
+    background-color: #ccc;
+  }
+  button {
+    background-color: #212529;
+    color: white; /* Para que el texto del botón sea legible */
+    border: 0; /* Para quitar el borde del botón */
+    border-radius: 0; /* Para agregar esquinas redondeadas al botón */
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    z-index: 1000;    
+    min-width: 7.5rem;    
+    margin: 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;    
+}

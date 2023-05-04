@@ -148,5 +148,14 @@
     "Accept": "Accept",
     "Reject": "Reject",
     "NotRegistered": "Not registered"
+  },
+  "habilitarCuenta": {
+    "AccountManage": "Account Management",
+    "Email": "Email",
+    "Specialties": "Specialties",
+    "Enable": "Enable",
+    "Disable": "Disable",
+    "accountStatus": "Account Status",
+    "Picture": "Picture"
   }
 }

@@ -148,5 +148,14 @@
     "Accept": "Aceitar",
     "Reject": "Rejeitar",
     "NotRegistered": "Não registrado"
+  },
+  "habilitarCuenta": {
+    "AccountManage": "Gerenciamento de contas",
+    "Email": "E-mail",
+    "Specialties": "Especialidades",
+    "Enable": "Habilitar",
+    "Disable": "Desabilitar",
+    "accountStatus": "Status da conta",
+    "Picture": "Imagem"
   }
 }

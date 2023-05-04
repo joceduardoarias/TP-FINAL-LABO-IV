@@ -5,23 +5,10 @@ import { HabilitarCuentasRoutingModule } from './habilitar-cuentas-routing.modul
 import { HabilitarcuentaComponent } from './habilitarcuenta/habilitarcuenta.component';
 import { EstadoMayusculaPipe } from '../pipes/estado-mayuscula.pipe';
 import { OrdenarPipe } from '../pipes/ordenar.pipe';
-
-
-
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [
-    HabilitarcuentaComponent,
-    OrdenarPipe,
-    EstadoMayusculaPipe
-
-
-    
-  ],
-  imports: [
-    CommonModule,
-    HabilitarCuentasRoutingModule,
-  ]
+  declarations: [HabilitarcuentaComponent, OrdenarPipe, EstadoMayusculaPipe],
+  imports: [CommonModule, HabilitarCuentasRoutingModule, TranslateModule],
 })
 export class HabilitarCuentasModule { }

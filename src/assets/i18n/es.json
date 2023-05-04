@@ -141,12 +141,21 @@
       "List": "Lista",
       "Error": "Error",
       "NewAdministrator": "Nuevo administrador"
-    }    
+    }
   },
   "aprobarCuenta": {
     "Email": "Correo electrónico",
     "Accept": "Aceptar",
     "Reject": "Rechazar",
     "NotRegistered": "No registrado"
+  },
+  "habilitarCuenta": {
+    "AccountManage": "Administración de cuentas",
+    "Email": "Correo electrónico",
+    "Specialties": "Especialidades",
+    "Enable": "Habilitar",
+    "Disable": "Deshabilitar",
+    "accountStatus": "Estado de la cuenta",
+    "Picture": "Imagen"
   }
 }

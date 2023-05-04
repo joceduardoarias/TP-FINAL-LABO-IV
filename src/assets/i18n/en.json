@@ -142,5 +142,11 @@
       "Error": "Error",
       "NewAdministrator": "New administrator"
     }
+  },
+  "aprobarCuenta": {
+    "Email": "Email",
+    "Accept": "Accept",
+    "Reject": "Reject",
+    "NotRegistered": "Not registered"
   }
 }

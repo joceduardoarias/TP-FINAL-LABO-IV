@@ -141,6 +141,12 @@
       "List": "Lista",
       "Error": "Erro",
       "NewAdministrator": "Novo administrador"
-      }                        
+    }
+  },
+  "aprobarCuenta": {
+    "Email": "E-mail",
+    "Accept": "Aceitar",
+    "Reject": "Rejeitar",
+    "NotRegistered": "Não registrado"
   }
 }

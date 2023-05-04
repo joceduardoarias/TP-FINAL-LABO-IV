@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AprobarCuentasRoutingModule } from './aprobar-cuentas-routing.module';
 import { AprobarcuentaComponent } from './aprobarcuenta/aprobarcuenta.component';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { AprobarcuentaComponent } from './aprobarcuenta/aprobarcuenta.component'
   ],
   imports: [
     CommonModule,
-    AprobarCuentasRoutingModule
+    AprobarCuentasRoutingModule,
+    TranslateModule
   ]
 })
 export class AprobarCuentasModule { }

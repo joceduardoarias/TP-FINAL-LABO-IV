@@ -5,9 +5,9 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Correo</th>
-                  <th scope="col">Aceptar</th>
-                  <th scope="col">Rechazar</th>
+                  <th scope="col">{{'aprobarCuenta.Email' | translate}}</th>
+                  <th scope="col">{{'aprobarCuenta.Accept' | translate}}</th>
+                  <th scope="col">{{'aprobarCuenta.Reject' | translate}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -25,7 +25,7 @@
               </tbody>
             </table>
             <div class="wii" *ngIf="list.length == 0">
-              <td>No hay ningun especialista para aprobar/rechazar.</td>
+              <td>{{'aprobarCuenta.NotRegistered' | translate}}</td>
             </div>
 
       </div>

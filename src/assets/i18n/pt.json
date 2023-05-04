@@ -17,7 +17,7 @@
     "Language": "Idioma",
     "appointments": "Consultas",
     "schedule": "Horário",
-    "Logout": "Sair"    
+    "Logout": "Sair"
   },
   "home": {
     "MyProfile": "Meu Perfil",
@@ -32,5 +32,42 @@
     "Users": "Usuários",
     "Appointments": "Consultas",
     "RequestAppointment": "Solicitar uma consulta"
+  },
+  "alta": {
+    "especialista": {
+      "Register": "Registrar",
+      "Name": "Nome",
+      "LastName": "Sobrenome",
+      "Email": "Email",
+      "Password": "Senha",
+      "ConfirmPassword": "Confirmar senha",
+      "Phone": "Telefone",
+      "BirthDate": "Data de nascimento",
+      "Address": "Endereço",
+      "City": "Cidade",
+      "Country": "País",
+      "PostalCode": "Código postal",
+      "NameRequired": "Nome é obrigatório",
+      "LastNameRequired": "Sobrenome é obrigatório",
+      "EmailRequired": "Email é obrigatório",
+      "PasswordRequired": "Senha é obrigatória",
+      "TextRequired": "Texto é obrigatório",
+      "PhoneRequired": "Telefone é obrigatório",
+      "FormatInvalid": "Formato inválido",
+      "Age": "Idade",
+      "AgeRequired": "Idade é obrigatória",
+      "AgeBetween": "A idade deve estar entre 18 e 90",
+      "Id": "Identificação",
+      "IdRequired": "Identificação é obrigatória",
+      "PasswordBetween": "A senha deve ter mais de 6 caracteres",
+      "IdInvalid": "Identificação inválida",
+      "Add": "Adicionar",
+      "Specialist": "Especialista",
+      "SpecialistRequired": "Especialista é obrigatório",
+      "Image": "Imagem",
+      "ImageRequired": "Imagem é obrigatória",
+      "List": "Lista",
+      "Error": "Erro"
+    }
   }
 }

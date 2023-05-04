@@ -11,7 +11,7 @@ import { AltaAdministradorComponent } from './alta-administrador/alta-administra
 import { CaptchaDirective } from '../directivas/captcha.directive';
 import { AltaEspecialistaComponent } from './alta-especialista/alta-especialista.component';
 import { AltaPacienteComponent } from './alta-paciente/alta-paciente.component';
-
+import { TranslateModule } from "@ngx-translate/core";
 
 
 
@@ -33,11 +33,8 @@ import { AltaPacienteComponent } from './alta-paciente/alta-paciente.component';
     AltasRoutingModule,
     NgxSpinnerModule,
     RecaptchaModule,
-    RecaptchaFormsModule
-
-
-    
-    
+    RecaptchaFormsModule,
+    TranslateModule        
   ]
 })
 export class AltasModule { }

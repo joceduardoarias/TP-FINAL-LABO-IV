@@ -1,23 +1,36 @@
 {
-    "login": {
-      "Login": "Entrar",
-      "Email": "Email",
-      "Password": "Senha",
-      "Forgot your password?": "Esqueceu sua senha?",
-      "Username": "Nome de usuário",
-      "MedicalEquipment": "Equipamento Médico",
-      "Invalidformat": "Formato inválido",
-      "PasswordRequired": "Senha é obrigatória",
-      "Error": "Erro. Tem menos de 6 caracteres:"
-    },
-    "navBar": {
-      "Login": "Entrar",
-      "Register": "Registrar-se",
-      "MedicalClinic": "Clínica Médica",
-      "Language": "Idioma",
-      "appointments": "Consultas",
-      "schedule": "Horário",
-      "Logout": "Sair"
-    }
+  "login": {
+    "Login": "Entrar",
+    "Email": "Email",
+    "Password": "Senha",
+    "Forgot your password?": "Esqueceu sua senha?",
+    "Username": "Nome de usuário",
+    "MedicalEquipment": "Equipamento Médico",
+    "Invalidformat": "Formato inválido",
+    "PasswordRequired": "Senha é obrigatória",
+    "Error": "Erro. Tem menos de 6 caracteres:"
+  },
+  "navBar": {
+    "Login": "Entrar",
+    "Register": "Registrar-se",
+    "MedicalClinic": "Clínica Médica",
+    "Language": "Idioma",
+    "appointments": "Consultas",
+    "schedule": "Horário",
+    "Logout": "Sair"    
+  },
+  "home": {
+    "MyProfile": "Meu Perfil",
+    "MyAppointments": "Minhas Consultas",
+    "Patients": "Pacientes",
+    "NewPatient": "Novo Paciente",
+    "NewSpecialist": "Novo Especialista",
+    "NewAdministrator": "Novo Administrador",
+    "Enable/Disable": "Habilitar/Inabilitar",
+    "Accounts": "Contas",
+    "Logs": "Logs",
+    "Users": "Usuários",
+    "Appointments": "Consultas",
+    "RequestAppointment": "Solicitar uma consulta"
   }
-  
+}

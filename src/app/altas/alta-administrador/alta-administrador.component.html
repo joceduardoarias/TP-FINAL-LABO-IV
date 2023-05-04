@@ -2,18 +2,18 @@
     <div class="particular">
         <form [formGroup] = "formGroup" (ngSubmit) = "aceptar()">
             <div class="d-flex justify-content-center aligns-items-center">
-                <h2 >ALTA ADMINISTRADOR</h2>
+                <h2 >{{'alta.administrador.NewAdministrator' | translate}}</h2>
             </div>
          <div class="row">
             <div class="col">
               <!-- Name input -->
               <div class="form-outline  fet">
                 <div class="centro">
-                  <label for="nombre" class="form-label">Nombre</label>
+                  <label for="nombre" class="form-label">{{'alta.administrador.Name' | translate}}</label>
                 </div>
                 <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName= "nombre">
                 <div class="tete">
-                    <small class="invalid" *ngIf = "formGroup.get('nombre')?.hasError('required') && formGroup.get('nombre')?.touched">El nombre es requerido</small>
+                    <small class="invalid" *ngIf = "formGroup.get('nombre')?.hasError('required') && formGroup.get('nombre')?.touched">{{'alta.administrador.NameRequired' | translate}}</small>
                 </div>
               </div>
             </div>
@@ -21,11 +21,11 @@
               <!-- Apellido input -->
               <div class="form-outline fet">
                 <div class="centro">
-                  <label for="Apellido"  class="form-label">Apellido</label>
+                  <label for="Apellido"  class="form-label">{{'alta.administrador.LastName' | translate}}</label>
                 </div>
                 <input type="text" class="form-control" placeholder="Apellido" id="Apellido" formControlName= "apellido">
                 <div class="tete">
-                    <small class="invalid" *ngIf = "formGroup.get('apellido')?.hasError('required') && formGroup.get('apellido')?.touched">El apellido es requerido</small>
+                    <small class="invalid" *ngIf = "formGroup.get('apellido')?.hasError('required') && formGroup.get('apellido')?.touched">{{'alta.administrador.LastNameRequired' | translate}}</small>
                 </div>
               </div>
             </div>
@@ -34,12 +34,12 @@
               <!-- Apellido input -->
               <div class="form-outline fet">
                 <div class="centro">
-                  <label for="email" class="form-label">Email</label>
+                  <label for="email" class="form-label">{{'alta.administrador.Email' | translate}}</label>
                 </div>
                         <input type="email" class="form-control" placeholder="Email" id="email" formControlName= "email">
                         <div class="tete">
-                            <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('required') && formGroup.get('email')?.touched">El Text es requerido</small>
-                            <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('pattern') && formGroup.get('email')?.touched">Formato inválido.</small>
+                            <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('required') && formGroup.get('email')?.touched">{{'alta.administrador.EmailRequired' | translate}}</small>
+                            <small class="invalid" *ngIf = "formGroup.get('email')?.hasError('pattern') && formGroup.get('email')?.touched">{{'alta.administrador.FormatInvalid' | translate}}</small>
                         </div>
               </div>
             </div>
@@ -52,12 +52,12 @@
               <!-- Name input -->
               <div class="form-outline fet">
                 <div class="centro">
-                  <label for="edad">Edad</label>
+                  <label for="edad">{{'alta.administrador.Id' | translate}}</label>
                 </div>
                 <input type="number" class="form-control" placeholder="Edad" id="edad" formControlName= "edad">
                 <div class="tete">
-                    <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('required') && formGroup.get('edad')?.touched">La edad es requerida</small>
-                    <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('min') || formGroup.get('edad')?.hasError('max') && formGroup.get('edad')?.touched">La edad debe  ser entre.. 18 y 90 años</small>
+                    <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('required') && formGroup.get('edad')?.touched">{{'alta.administrador.AgeRequired' | translate}}</small>
+                    <small class="invalid" *ngIf = "formGroup.get('edad')?.hasError('min') || formGroup.get('edad')?.hasError('max') && formGroup.get('edad')?.touched">{{'alta.administrador.AgeBetween' | translate}}</small>
                 </div>
               </div>
             </div>
@@ -65,22 +65,22 @@
               <!-- Name input -->
               <div class="form-outline fet">
                 <div class="centro">
-                  <label for="dni">DNI</label>
+                  <label for="dni">{{'alta.administrador.Id' | translate}}</label>
                 </div>
                 <input type="number" class="form-control" placeholder="Dni" id="dni" formControlName= "dni">
                 <div class="tete">
-                    <small class="invalid" *ngIf = "formGroup.get('dni')?.hasError('required') && formGroup.get('dni')?.touched">El DNI es requerido</small>
+                    <small class="invalid" *ngIf = "formGroup.get('dni')?.hasError('required') && formGroup.get('dni')?.touched">{{'alta.administrador.IdRequired' | translate}}</small>
                 </div>
               </div>
             </div>
             <div class="col">
               <!-- Email input -->
               <div class="form-outline fet">
-                <label for="password">Password</label>
+                <label for="password">{{'alta.administrador.Password' | translate}}</label>
                 <input type="password" class="form-control" placeholder="Password" id="password" formControlName= "password">
                 <div class="tete">
-                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">La contraseña es requerido</small>
-                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('caracter') && formGroup.get('password')?.touched">Error. Tiene menos de 6 caracateres</small>
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">{{'alta.administrador.PasswordRequired' | translate}}</small>
+                    <small class="invalid" *ngIf = "formGroup.get('password')?.hasError('caracter') && formGroup.get('password')?.touched">{{'alta.administrador.Error' | translate }}. {{'alta.administrador.PasswordBetween'}}</small>
                 </div>
               </div>
             </div>
@@ -89,9 +89,9 @@
           <div class="row mt-1">
             <div class="col-6  fet divtama">
                 <input  type="file" accept=".png, .jpg, .jpeg" multiple (change) = "cargarImagen($event)" formControlName="inputFile"  id="inputFile">
-                <label class="labelInputFile" for="inputFile">IMAGEN </label>
+                <label class="labelInputFile" for="inputFile">{{'alta.administrador.Image' | translate}}</label>
                 <div class="tete">
-                    <small class="invalid" *ngIf = "formGroup.get('inputFile')?.hasError('required') && formGroup.get('inputFile')?.touched">El archivo es requerido</small>   
+                    <small class="invalid" *ngIf = "formGroup.get('inputFile')?.hasError('required') && formGroup.get('inputFile')?.touched">{{'alta.administrador.ImageRequired' | translate}}</small>   
                 </div>
             </div>
             
@@ -104,14 +104,14 @@
           <div class="col-6">
             <input  invalid class="form-control mt-3" id="entrada" autocomplete="doNotAutoComplete"
               formControlName="capchaInput" [(ngModel)]="cap" placeholder="Escriba el codigo"  >
-              <span class="form-control mt-3" id="mensaje" *ngIf="(!(cap == capcha)) && formGroup.get('capchaInput')?.touched ">  Capcha INCORRECTO ❌</span>
+              <span class="form-control mt-3" id="mensaje" *ngIf="(!(cap == capcha)) && formGroup.get('capchaInput')?.touched ">  Capcha {{'alta.administrador.Error' | translate}} ❌</span>
           </div>
     
     
           
         </div>
           <div class="row margintop">
-              <button type="submit" class="btn btn-info btn-lg btn-responsive botonPrincipal" [disabled] = "formGroup.invalid || (capcha != cap)" id="search">REGISTRAR</button>
+              <button type="submit" class="btn btn-info btn-lg btn-responsive botonPrincipal" [disabled] = "formGroup.invalid || (capcha != cap)" id="search">{{'alta.administrador.Register' | translate}}</button>
               <button type="button" (click) = "deshabilitado()">CANCELAR_CAPTCHA</button>
           </div>
           

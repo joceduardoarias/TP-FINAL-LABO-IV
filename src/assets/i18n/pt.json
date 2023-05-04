@@ -105,6 +105,42 @@
       "Error": "Erro",
       "Ensurence": "Seguradora",
       "EnsurenceRequired": "Seguradora é obrigatória"
-    }
+    },
+    "administrador": {
+      "Register": "Registrar",
+      "Name": "Nome",
+      "LastName": "Sobrenome",
+      "Email": "E-mail",
+      "Password": "Senha",
+      "ConfirmPassword": "Confirmar senha",
+      "Phone": "Telefone",
+      "BirthDate": "Data de nascimento",
+      "Address": "Endereço",
+      "City": "Cidade",
+      "Country": "País",
+      "PostalCode": "Código postal",
+      "NameRequired": "Nome é obrigatório",
+      "LastNameRequired": "Sobrenome é obrigatório",
+      "EmailRequired": "E-mail é obrigatório",
+      "PasswordRequired": "Senha é obrigatória",
+      "TextRequired": "Texto é obrigatório",
+      "PhoneRequired": "Telefone é obrigatório",
+      "FormatInvalid": "Formato inválido",
+      "Age": "Idade",
+      "AgeRequired": "Idade é obrigatória",
+      "AgeBetween": "A idade deve estar entre 18 e 90",
+      "Id": "Identificação",
+      "IdRequired": "Identificação é obrigatória",
+      "PasswordBetween": "A senha deve ter mais de 6 caracteres",
+      "IdInvalid": "Identificação inválida",
+      "Add": "Adicionar",
+      "Administrator": "Administrador",
+      "AdministratorRequired": "Administrador é obrigatório",
+      "Image": "Imagem",
+      "ImageRequired": "Imagem é obrigatória",
+      "List": "Lista",
+      "Error": "Erro",
+      "NewAdministrator": "Novo administrador"
+      }                        
   }
 }

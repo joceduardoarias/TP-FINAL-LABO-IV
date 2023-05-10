@@ -1,14 +1,29 @@
-.principal
-{
-    min-height: 70vh;
+.principal {
+    margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-}
-.principall
-{
+  }
   
+  .principall {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .principall button {
+    margin-right: 10px;
+    background-color: #212529;
+    color: #fff;
+    border-color: #212529;
+  }
+  
+  .principall button:hover {
+    background-color: gray;
+    color: #fff;
+    border-color: gray;
+  }
+  

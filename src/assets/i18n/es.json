@@ -168,6 +168,13 @@
       "Hour": "Hora",
       "User": "Usuario",
       "Log": "Registro"
+    },
+    "menu": {
+      "Incomes": "Ingresos al sistema",
+      "QuantityPerSpecialty": "Cantidad turnos por especialidad",
+      "QuantityPerDay": "Cantidad turnos por día",
+      "ShiftsRequestedByDoctor": "Turnos solicitados por medico",
+      "ShiftsCompletedByDoctor": "Turnos finalizados por medico"
     }
   }
 }

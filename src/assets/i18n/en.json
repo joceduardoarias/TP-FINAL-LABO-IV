@@ -157,5 +157,24 @@
     "Disable": "Disable",
     "accountStatus": "Account Status",
     "Picture": "Picture"
-  }
+  },
+  "log": {
+    "ingresos": {
+      "Logs": "Logs",
+      "Date": "Date",
+      "Day": "Day",
+      "Month": "Month",
+      "Year": "Year",
+      "Hour": "Hour",
+      "User": "User",
+      "Log": "Log"
+    },
+    "menu": {
+      "Incomes": "System Incomes",
+      "QuantityPerSpecialty": "Quantity of Shifts per Specialty",
+      "QuantityPerDay": "Quantity of Shifts per Day",
+      "ShiftsRequestedByDoctor": "Shifts Requested by Doctor",
+      "ShiftsCompletedByDoctor": "Shifts Completed by Doctor"
+    }
+  } 
 }

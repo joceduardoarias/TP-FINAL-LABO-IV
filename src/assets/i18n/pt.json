@@ -157,5 +157,24 @@
     "Disable": "Desabilitar",
     "accountStatus": "Status da conta",
     "Picture": "Imagem"
-  }
+  },
+  "log": {
+    "ingresos": {
+      "Logs": "Registros",
+      "Date": "Data",
+      "Day": "Dia",
+      "Month": "Mês",
+      "Year": "Ano",
+      "Hour": "Hora",
+      "User": "Usuário",
+      "Log": "Registro"
+    },
+    "menu": {
+      "Incomes": "Receitas",
+      "QuantityPerSpecialty": "Quantidade de turnos por especialidade",
+      "QuantityPerDay": "Quantidade de turnos por dia",
+      "ShiftsRequestedByDoctor": "Turnos solicitados por médico",
+      "ShiftsCompletedByDoctor": "Turnos finalizados por médico"
+    }
+  } 
 }

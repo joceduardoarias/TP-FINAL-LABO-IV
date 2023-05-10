@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { FechaDirectivaDirectiveDirective } from '../directivas/fecha-directiva-directive.directive';
 import { LargoMaximoDirective } from '../directivas/largo-maximo.directive';
 import { SoloNumerosDirective } from '../directivas/solo-numeros.directive';
-
+import { TranslateModule } from '@ngx-translate/core';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { SoloNumerosDirective } from '../directivas/solo-numeros.directive';
   imports: [
     FormsModule,
     CommonModule,
-    LogsRoutingModule
+    LogsRoutingModule,
+    TranslateModule,
+    NgxPaginationModule
   ]
 })
 export class LogsModule { }

@@ -29,3 +29,14 @@ table
     align-items: center;
     width: 100%;
 }
+.centered-table {
+    margin: 0 auto;
+    width: 80%; /* ajusta el ancho según tus necesidades */
+  }
+  
+  .centered-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* ajusta el margen según tus necesidades */
+  }
+  

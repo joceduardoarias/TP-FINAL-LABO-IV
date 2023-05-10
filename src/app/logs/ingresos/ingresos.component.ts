@@ -4,20 +4,29 @@ import { LogIngresosService } from 'src/app/services/log-ingresos.service';
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
-  styleUrls: ['./ingresos.component.css']
+  styleUrls: ['./ingresos.component.css'],
 })
 export class IngresosComponent implements OnInit {
-  list:any = [];
-  constructor(private logs:LogIngresosService) 
-  {
-       logs.getAll().valueChanges().subscribe(e=>{
-        console.log(e);
-        
+  list: any = [];
+  paginaActual = 1;
+  registrosOrdenados: any = [];
+  constructor(private logs: LogIngresosService) {
+    logs
+      .getAll()
+      .valueChanges()
+      .subscribe((e) => {
         this.list = e;
-       })
+        this.ordenar(e);
+      });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  ordenar(registros) {
+    this.registrosOrdenados = registros.sort((a, b) => {
+      const fechaA = new Date(a.dia);
+      const fechaB = new Date(b.dia);
+      return fechaB.getTime() - fechaA.getTime();
+    });
+  }
 }

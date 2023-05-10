@@ -157,5 +157,17 @@
     "Disable": "Deshabilitar",
     "accountStatus": "Estado de la cuenta",
     "Picture": "Imagen"
+  },
+  "log": {
+    "ingresos": {
+      "Logs": "Registros",
+      "Date": "Fecha",
+      "Day": "Día",
+      "Month": "Mes",
+      "Year": "Año",
+      "Hour": "Hora",
+      "User": "Usuario",
+      "Log": "Registro"
+    }
   }
 }

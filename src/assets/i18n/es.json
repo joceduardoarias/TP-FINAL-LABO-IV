@@ -167,7 +167,9 @@
       "Year": "Año",
       "Hour": "Hora",
       "User": "Usuario",
-      "Log": "Registro"
+      "Log": "Registro",
+      "Specialty": "Especialidad",
+      "Quantity": "Cantidad"
     },
     "menu": {
       "Incomes": "Ingresos al sistema",

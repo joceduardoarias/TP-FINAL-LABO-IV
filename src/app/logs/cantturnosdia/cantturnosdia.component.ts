@@ -2,6 +2,9 @@ import { Component, OnInit,ViewChild,ElementRef,  } from '@angular/core';
 import { AgregarestadoturnoService } from 'src/app/services/agregarestadoturno.service';
 import jsPDF from 'jspdf';
 import Chart from 'chart.js/auto';
+// import toDataURL from 'canvas-background';
+import html2canvas from 'html2canvas';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-cantturnosdia',
   templateUrl: './cantturnosdia.component.html',
@@ -13,8 +16,9 @@ export class CantturnosdiaComponent implements OnInit {
   ctx:any;
   turnospordiacontador:any = [];
   filtrado:any = [];
+  paginaActual = 1;
   @ViewChild('content',{static:false}) el!:ElementRef;
-  constructor(private agregarestadoturno:AgregarestadoturnoService) 
+  constructor(private agregarestadoturno:AgregarestadoturnoService, private translateService : TranslateService) 
   {
     this.agregarestadoturno.getAll().valueChanges().subscribe(e=>{
         let ordenado = e.sort(this.comparar);
@@ -26,7 +30,7 @@ export class CantturnosdiaComponent implements OnInit {
           this.filtrado.push(elemento);
          }
         }
-        console.log(ordenado);
+        
         for(let i = 0; i <this.filtrado.length;i++)
        {
           let contador = 0;
@@ -44,18 +48,9 @@ export class CantturnosdiaComponent implements OnInit {
        {
          let data = {'dia':this.filtrado[i],'cantidad':this.turnospordiacontador[i]}
          this.list.push(data);
-       }
-       console.log(this.list);
-       
-       console.log(this.filtrado);
-       console.log(this.turnospordiacontador);
-       this.det();
-       
-        
-        
-        
-        
-     })
+       }       
+       this.det();                                     
+     });
   }
 
   ngOnInit(): void {
@@ -70,7 +65,7 @@ const myChart = new Chart(this.ctx, {
  data: {
   labels : this.filtrado,
   datasets: [{
-    label: 'Gráfico de barras por dia',
+    label: this.translateService.instant('log.menu.QuantityPerDay'),
     data: this.turnospordiacontador,
     backgroundColor: [
       'rgb(255, 99, 132)',
@@ -122,16 +117,27 @@ const myChart = new Chart(this.ctx, {
   makePDF()
 {
   this.fecha = new Date().toLocaleDateString()
-  let pdf = new jsPDF('p','pt','a4');
-  const option = {
-    background: 'white',
-    scale: 3,
-  }
-  pdf.html(this.el.nativeElement,{
-    callback:(pdf)=>{
-       pdf.save("Grafico de barras por especialista.pdf")
-    }
-  });
+  const DATA = document.getElementById('m');
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG',0.8);
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_turnosPorDía.pdf`);
+    });    
 }
 
 }

@@ -167,7 +167,9 @@
       "Year": "Year",
       "Hour": "Hour",
       "User": "User",
-      "Log": "Log"
+      "Log": "Log",
+      "Specialty": "Speciality",
+      "Quantity": "Quantity"
     },
     "menu": {
       "Incomes": "System Incomes",

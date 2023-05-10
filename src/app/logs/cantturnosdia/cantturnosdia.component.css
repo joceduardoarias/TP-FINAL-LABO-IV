@@ -1,6 +1,12 @@
 .d
 {
-    display: flex;
+    display: inline-block;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.grafico{
+    display: flex;    
     justify-content: center;
     align-items: center;
 }
@@ -12,7 +18,15 @@
 {
     color: aqua;
 }
-table
-{
-    width: 80%;
-}
+
+
+.centered-table {
+    margin: 0 auto;
+    width: 80%; /* ajusta el ancho según tus necesidades */
+  }
+  
+  .centered-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* ajusta el margen según tus necesidades */
+  }

@@ -4,7 +4,7 @@ import { arrayRemove } from 'firebase/firestore';
 import jsPDF from 'jspdf';
 import { AgregarestadoturnoService } from 'src/app/services/agregarestadoturno.service';
 import { CargarhoraespecialistaService } from 'src/app/services/cargarhoraespecialista.service';
-
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-cantturnosespecialidad',
   templateUrl: './cantturnosespecialidad.component.html',
@@ -87,71 +87,31 @@ const myChart = new Chart(this.ctx, {
   }]
  },
 });
- // let ctx: any = document.getElementById("myChart") as HTMLElement;
- // var data = {
- //   labels: ["match1", "match2", "match3", "match4", "match5"],
- //   datasets: [
- //     {
- //       label: "TeamA Score",
- //       data: [10, 50, 25, 70, 40],
- //       backgroundColor: "blue",
- //       borderColor: "lightblue",
- //       fill: false,
- //       lineTension: 0,
- //       radius: 5
- //     },
- //     {
- //       label: "TeamB Score",
- //       data: [20, 35, 40, 60, 50],
- //       backgroundColor: "green",
- //       borderColor: "lightgreen",
- //       fill: false,
- //       lineTension: 0,
- //       radius: 5
- //     }
- //   ]
- // };
-
- // //options
- // var options = {
- //   responsive: true,
- //   title: {
- //     display: true,
- //     position: "top",
- //     text: "Line Graph",
- //     fontSize: 18,
- //     fontColor: "#111"
- //   },
- //   legend: {
- //     display: true,
- //     position: "bottom",
- //     labels: {
- //       fontColor: "#333",
- //       fontSize: 16
- //     }
- //   }
- // };
-
- // //create Chart class object
- // var chart = new Chart(ctx, {
- //   type: "line",
- //   data: data,
- //   options: options
- // });
+  
 }
 makePDF()
 {
-  this.fecha = new Date().toLocaleDateString()
-  let pdf = new jsPDF('p','pt','a4');
-  const option = {
-    background: 'white',
-    scale: 3,
-  }
-  pdf.html(this.el.nativeElement,{
-    callback:(pdf)=>{
-       pdf.save("Grafico de barras por especialista.pdf")
-    }
-  });
+  const DATA = document.getElementById('myChart');
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG',0.8);
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_turnosPorDía.pdf`);
+    });
 }
 
 }

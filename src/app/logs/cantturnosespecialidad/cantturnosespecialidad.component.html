@@ -4,7 +4,7 @@
 <div class="d">
     <div id="content" #content>
     
-        <div class="d-flex justify-content-center align-items-center">
+        <!-- <div class="d-flex justify-content-center align-items-center">
             <table class="table m">
             <thead>
               <tr>
@@ -19,7 +19,27 @@
             </tr>
             </tbody>
           </table>
-        </div>
+        </div> -->
+        <table class="table table-striped centered-table">
+          <thead>
+            <tr>
+              <th>{{"log.ingresos.Specialty" | translate}}</th>
+              <th>{{"log.ingresos.Quantity" | translate}}</th>      
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let registro of list          
+                  | paginate : { itemsPerPage: 10, currentPage: paginaActual }          
+              "
+            >      
+              <td>{{ registro.especialidad }}</td>
+              <td>{{ registro.cantidad }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls class="centered-pagination" (pageChange)="paginaActual = $event"></pagination-controls>
     <div class="d">
         <div  id="content" #content>
             <canvas id="myChart" class="tt" style="width:100%;max-width:700px;height:100%;max-height:400px"></canvas>

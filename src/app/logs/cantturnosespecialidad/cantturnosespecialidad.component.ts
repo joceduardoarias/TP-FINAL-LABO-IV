@@ -14,7 +14,7 @@ export class CantturnosespecialidadComponent implements OnInit {
   fecha:any;
   ctx:any;
   @ViewChild('content',{static:false}) el!:ElementRef;
-  
+  paginaActual = 1;
   list:any = [];
   especialistas:any = [];
   especialistacontador:any = [];

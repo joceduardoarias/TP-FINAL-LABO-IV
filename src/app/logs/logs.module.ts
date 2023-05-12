@@ -15,7 +15,12 @@ import { LargoMaximoDirective } from '../directivas/largo-maximo.directive';
 import { SoloNumerosDirective } from '../directivas/solo-numeros.directive';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     PrincipalComponent,
@@ -34,7 +39,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     LogsRoutingModule,
     TranslateModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatIconModule,
+    MatButtonModule  
   ]
 })
 export class LogsModule { }

@@ -1,36 +1,63 @@
-<p>turnosolicitadolapso works!</p>
-<input type="text" appFechaDirectivaDirective appSoloNumeros appLargoMaximo [(ngModel)]="fechaDesde" placeholder="Fecha Desde (dd/mm/aaaa)">
-<input type="text" appFechaDirectivaDirective appSoloNumeros appLargoMaximo [(ngModel)]="fechaHasta" placeholder="Fecha Hasta (dd/mm/aaaa)">
-<button class="btn btn-primary" (click) = "filtrar()">FILTRAR</button>
+<div class="d-flex justify-content-center align-items-center">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Start date" [(ngModel)]="startDate" />
+      <input matEndDate placeholder="End date" [(ngModel)]="endDate" />
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>  
+  <button
+    mat-mini-fab    
+    color="black"
+    class="no-hover-effect"
+    aria-label="Example icon button with a filter list icon"
+    (click)="filtrar()"
+  >
+    <mat-icon>filter_list</mat-icon>
+  </button>
+  <button
+    mat-mini-fab    
+    color="black"
+    class="no-hover-effect"
+    aria-label="Example icon button with a filter list icon"
+    (click)="makePDF()"
+  >
+  <mat-icon>cloud_download</mat-icon>
+  </button>
+</div>
 
 <div class="d-flex justify-content-center align-items-center">
-    <h2>Cantidad de turnos por especialidad</h2>
-  </div>
-  <div class="d">
+  <h2>{{"log.menu.ShiftsCompletedByDoctor" | translate}}</h2>
+</div>
+<div class="d">
+  <div id="content" #content>
+    <div class="d-flex justify-content-center align-items-center">
+      <table class="table m">
+        <thead>
+          <tr>
+            <th>{{"log.ingresos.Specialty" | translate}}</th>
+            <th>{{"log.ingresos.Quantity" | translate}}</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of listafinal">
+          <tr>
+            <td>{{ item.correo }}</td>
+            <td>{{ item.cantidad }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d">
       <div id="content" #content>
-      
-          <div class="d-flex justify-content-center align-items-center">
-              <table class="table m">
-              <thead>
-                <tr>
-                  <th scope="col">Especialista</th>
-                  <th scope="col">Cantidad</th>
-                </tr>
-              </thead>
-              <tbody *ngFor="let item of listafinal">
-                  <tr>
-                      <td> {{item.correo}} </td>
-                      <td> {{item.cantidad}} </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-      <div class="d">
-          <div  id="content" #content>
-              <canvas id="myChart" class="tt" style="width:100%;max-width:700px;height:100%;max-height:400px"></canvas>
-          </div>
-          
+        <canvas
+          id="myChart"
+          class="tt"
+          style="width: 100%; max-width: 700px; height: 100%; max-height: 400px"
+        ></canvas>
       </div>
-      </div>
-      </div>
-      <button class="btn btn-primary" (click) = "makePDF()" >CREAR PDF</button>
+    </div>
+  </div>
+</div>

@@ -12,7 +12,7 @@ import { CaptchaDirective } from '../directivas/captcha.directive';
 import { AltaEspecialistaComponent } from './alta-especialista/alta-especialista.component';
 import { AltaPacienteComponent } from './alta-paciente/alta-paciente.component';
 import { TranslateModule } from "@ngx-translate/core";
-
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -34,7 +34,8 @@ import { TranslateModule } from "@ngx-translate/core";
     NgxSpinnerModule,
     RecaptchaModule,
     RecaptchaFormsModule,
-    TranslateModule        
+    TranslateModule,
+    MatIconModule        
   ]
 })
 export class AltasModule { }

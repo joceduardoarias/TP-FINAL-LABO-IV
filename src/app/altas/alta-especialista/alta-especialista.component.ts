@@ -10,6 +10,7 @@ import { RegistrarUsuariosService } from 'src/app/services/registrar-usuarios.se
 import { SelecespecialistaService } from 'src/app/services/selecespecialista.service';
 import { SubirimagenService } from 'src/app/services/subirimagen.service';
 import Swal from 'sweetalert2';
+import { isEmpty } from 'lodash';
 
 @Component({
   selector: 'app-alta-especialista',
@@ -163,9 +164,18 @@ cargarImagen(event:any)
 {
   this.eventoGeneral = event;
 }
-agregar()
-{
- let data = (<HTMLInputElement>document.getElementById('agregar')).value;
+agregar(): void {
+  const data: string = (<HTMLInputElement>document.getElementById('agregar')).value.trim();
+
+  if (data.length === 0) {
+    alert("El campo está vacío");
+    return;
+  }
+
+  if (this.list.includes(data)) {
+    alert("La especialidad " + data + " ya está registrada");
+    return;
+  }
 
   this.list.push(data);
 }
@@ -200,17 +210,15 @@ cambiar()
 {
   this.listoriginal.push(this.formGroup.getRawValue().especialidad);
 }
-borrar2(data:any)
-{
-  console.log(data);
+borrar2(data: any): void {
   
-  for(let i = 0; i<this.listoriginal.length;i++)
-  {
-    if(data == this.list[i])
-    {
-      this.listoriginal.splice(i,i);
-    }
+  console.log(this.listoriginal);
+  
+  const index = this.listoriginal.indexOf(data);
+  if (index !== -1) {
+    this.listoriginal.splice(index, 1);
   }
+  console.log(this.listoriginal);
 }
 deshabilitado()
 {

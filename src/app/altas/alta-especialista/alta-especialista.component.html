@@ -201,13 +201,11 @@
                 type="text"
                 placeholder="Especalidad"
                 id="agregar"
-              />
-              <img
-                (click)="agregar()"
-                class="iimg"
-                src="https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-plus-icon-png-image_515260.jpg"
-                alt=""
-              />
+              />                          
+                <span class="button-clickable" (click)="agregar()">
+                  <mat-icon>add</mat-icon>
+                </span>
+              
             </div>
           </div>
         </div>
@@ -227,13 +225,10 @@
                 <option *ngFor="let item of list" [value]="item">
                   {{ item }}
                 </option>
-              </select>
-              <img
-                (click)="borrar()"
-                class="iimg"
-                src="../../../assets/eliminar.jpg"
-                alt=""
-              />
+              </select>             
+              <span class="button-clickable" (click)="borrar()">
+                <mat-icon>remove</mat-icon>
+              </span>
             </div>
             <div class="tete">
               <small

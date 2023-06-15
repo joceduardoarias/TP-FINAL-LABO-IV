@@ -222,7 +222,7 @@ export class LoginComponent implements OnInit {
     } else if (data == 'noliji4046@aramask.com') {
       this.img1 =
         'https://img.freepik.com/vector-gratis/fondo-personaje-doctor_1270-84.jpg?w=2000';
-    } else if (data == 'sakir29583@musezoo.com') {
+    } else if (data == 'watife9316@camplvad.com') {
       this.img1 =
         'https://blogs.iadb.org/salud/wp-content/uploads/sites/15/2018/10/banner-24_1200x525-v01-01.jpg';
     } else if (data == 'sayasof742@musezoo.com') {

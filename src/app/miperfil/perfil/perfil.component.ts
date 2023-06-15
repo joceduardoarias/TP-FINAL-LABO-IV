@@ -106,18 +106,19 @@ export class PerfilComponent implements OnInit {
             this.cargo = true;
             this.datoUsuario = ese.data();
             this.getSchedule(this.datoUsuario).then((e: any) => {
-              
-
-              for (var dia of e.dias) {
-                for (var day of this.dayOfWeek) {
-                  if (dia != null) {
-                    if (dia.toString() == day.id) {
-                      day.checked = true;
+                            
+              if (e != null) {
+                for (var dia of e.dias) {
+                  for (var day of this.dayOfWeek) {
+                    if (dia != null) {
+                      if (dia.toString() == day.id) {
+                        day.checked = true;
+                      }
                     }
                   }
                 }
-              }
-              this.setHorario(e.hora);
+                this.setHorario(e.hora); 
+              }             
             });
           }
         });

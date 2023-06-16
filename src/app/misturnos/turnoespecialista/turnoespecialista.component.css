@@ -9,10 +9,10 @@
     border-radius: 10px;
     border: solid 2px red;
 }
-td:hover
+/* td:hover
 {
     background-color:aquamarine;
-}
+} */
 .wii
 {
     display: flex;

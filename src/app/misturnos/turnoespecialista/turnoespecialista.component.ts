@@ -238,7 +238,7 @@ export class TurnoespecialistaComponent implements OnInit {
   cancelarTurno(quiencancelo:any,data:any)
   {  
     Swal.fire({
-      title: '¿Escribe el comentario?',
+      title: '¿Motivo de cancelación?',
       input: 'text',
       inputAttributes: {
         autocapitalize: 'off'
@@ -262,6 +262,38 @@ export class TurnoespecialistaComponent implements OnInit {
           data.comentarioadmin = result.value;
         }
         data.estado = "cancelado";
+        this.buscar(data);
+        this.quehago(data.dia,data.hora,data.minutos,data.correoEspecialista);
+      }
+    })
+  }
+  RechazarTurno(quiencancelo:any,data:any)
+  {  
+    Swal.fire({
+      title: '¿Motivo del rechazo?',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Enviar',
+      showLoaderOnConfirm: true,
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if(quiencancelo == 'especialista')
+        {
+          data.comentarioespecialista = result.value
+        }
+        else if(quiencancelo == 'paciente')
+        {
+          data.comentariopaciente = result.value;
+        }
+        else
+        {
+          data.comentarioadmin = result.value;
+        }
+        data.estado = "rechazado";
         this.buscar(data);
         this.quehago(data.dia,data.hora,data.minutos,data.correoEspecialista);
       }
@@ -331,22 +363,22 @@ export class TurnoespecialistaComponent implements OnInit {
     
   
   }
-  hacerBusqueda()
-  {
-    let arrnueva = [];
-    let cantidadletras = this.b.length;
-    
-    var especialista = this.list.filter((e:any)=>{
-
-      return e.especialidad == this.b || e.correoEspecialista == this.b;
-
-      
-    })
-    if(especialista.length > 0 )
-    {
-      this.list = especialista;
+  
+  hacerBusqueda() {
+    const filtro = this.b.trim().toLowerCase();
+    if (filtro === '') {
+      // Si el filtro está vacío, mostrar todos los elementos sin filtrar
+      this.list = this.list;
+    } else {
+      // Filtrar los elementos según el criterio de búsqueda
+      this.list = this.list.filter((element: any) =>
+        element.especialidad.toLowerCase().includes(filtro) ||
+        element.correoEspecialista.toLowerCase().includes(filtro)||
+        element.correoPaciente.toLowerCase().includes(filtro)
+      );
     }
   }
+  
   limpiar()
   {
     this.list = [];

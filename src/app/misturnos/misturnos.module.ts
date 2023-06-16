@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TurnopacienteComponent } from './turnopaciente/turnopaciente.component';
 import { TurnoespecialistaComponent } from './turnoespecialista/turnoespecialista.component';
 import { TurnoadministradorComponent } from './turnoadministrador/turnoadministrador.component';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { TurnoadministradorComponent } from './turnoadministrador/turnoadministr
     CommonModule,
     MisturnosRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ]
 })
 export class MisturnosModule { }

@@ -6,6 +6,10 @@ import { HistoriaClinicaService } from 'src/app/services/historia-clinica.servic
 import { HorariosturnosService } from 'src/app/services/horariosturnos.service';
 import Swal from 'sweetalert2';
 
+
+const ELEMENT_DATA: any[] = [
+  {comentariopaciente: "", comentarioespecialista: "", comentarioadmin: "", diagnostico: ""}  
+];
 @Component({
   selector: 'app-turnoespecialista',
   templateUrl: './turnoespecialista.component.html',
@@ -18,7 +22,9 @@ export class TurnoespecialistaComponent implements OnInit {
   resenia:boolean = false;
   reseniaActual:any;
   ditt:any = "hola";
-
+  displayedColumns: string[] = ['Comentario Paciente', 'Comentario Especialista', 'Comentario Administrador', 'Diagnóstico'];
+  dataSource = ELEMENT_DATA;
+  
   constructor(public auth:AuthService,private agregarestadoturno:AgregarestadoturnoService,private hsturnos:HorariosturnosService,private historiaclinica:HistoriaClinicaService) 
   {
   
@@ -273,6 +279,12 @@ export class TurnoespecialistaComponent implements OnInit {
   verresenia(data:any)
   {
     this.reseniaActual = data;
+    for (var comentario of ELEMENT_DATA) {
+      comentario.comentariopaciente = this.reseniaActual.comentariopaciente;
+      comentario.comentarioespecialista = this.reseniaActual.comentarioespecialista;
+      comentario.comentarioadmin = this.reseniaActual.comentarioadmin;
+      comentario.diagnostico = this.reseniaActual.diagnostico
+    }
     this.resenia  = !this.resenia;
   }
 

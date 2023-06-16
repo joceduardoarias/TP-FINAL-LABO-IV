@@ -46,3 +46,11 @@ td:hover
     80%{right: -80vh;top:0}
     100%{right: -100vh;top:0}
 }
+table {
+    width: 50%;
+  }
+  .table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }

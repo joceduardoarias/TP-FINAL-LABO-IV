@@ -218,8 +218,44 @@ export class TurnopacienteComponent implements OnInit {
   {
     this.reseniaActual = data;
     this.resenia  = !this.resenia;
+    var tablaHTML = this.tableHtml(this.reseniaActual);
+    // Mostrar el SweetAlert2 con la tabla
+Swal.fire({
+  title: 'Tabla de ejemplo',
+  html: tablaHTML,
+  showConfirmButton: false,
+  cancelButtonText: "Cerrar",
+  showCancelButton: true,
+  showCloseButton: true,
+  customClass: {    
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+});
   }
-
+  tableHtml(data){
+    const tablaHTML = `
+    <div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th scope="col">Comentario Paciente</th>
+      <th scope="col">Comentario Especialista</th>
+      <th scope="col">Comentario Administrador</th>
+      <th scope="col">Diagnóstico</th>
+      </tr>
+    </thead>
+    <tbody>      
+    <td>${data.comentariopaciente} </td>
+    <td>${data.comentarioespecialista}</td>
+    <td>${data.comentarioadmin}</td>
+    <td>${data.diagnostico}</td>          
+    </tbody>
+  </table>
+  </div>
+`;
+ return tablaHTML;
+  }
   quehago(dia:any,hora:any,minutos:any,email:any)
   {
     let arraytercero:any = [];

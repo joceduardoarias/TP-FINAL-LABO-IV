@@ -8,6 +8,10 @@ import { TurnopacienteComponent } from './turnopaciente/turnopaciente.component'
 import { TurnoespecialistaComponent } from './turnoespecialista/turnoespecialista.component';
 import { TurnoadministradorComponent } from './turnoadministrador/turnoadministrador.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import {MatTableModule} from '@angular/material/table';
     MisturnosRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatIconModule
   ]
 })
 export class MisturnosModule { }

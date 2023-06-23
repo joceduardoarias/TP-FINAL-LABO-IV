@@ -9,10 +9,10 @@
     border-radius: 10px;
     border: solid 2px red;
 }
-td:hover
+/* td:hover
 {
     background-color:aquamarine;
-}
+} */
 .wii
 {
     display: flex;
@@ -46,3 +46,36 @@ td:hover
     80%{left: 0;top:-80vh;}
     100%{left: 0;top:-100vh;}
 }
+
+table {
+  width: 100%;
+}
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+    
+  .centered-input {
+    margin-bottom: 16px;
+    width: 300px; 
+  }
+  
+  .centered-paginator {
+    margin-top: 16px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+  }
+  
+  .table-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  button{
+    min-width: 158px;
+  }

@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center align-items-center" >
+<!---<div class="d-flex justify-content-center align-items-center" >
 
 
   <div class="general d-flex justify-content-center align-items-center">
@@ -6,9 +6,8 @@
         <div class="d-flex justify-content-center align-items-center">
             <h2>MIS TURNOS</h2>
         </div>
-      <div class="table-responsive segundogeneral">
-        
-<div class="container-fluid d-flex justify-content-center align-items-center">
+     <div class="table-responsive segundogeneral">
+         <div class="container-fluid d-flex justify-content-center align-items-center">
 <div class="d-flex">
 <input class="form-control me-2" type="search" placeholder="Search" value="dasd"  aria-label="Search" [(ngModel)]="b">
 <button class="btn btn-outline-success" (click) = "hacerBusqueda()" type="button">Search</button>
@@ -16,7 +15,7 @@
 
 
 </div>
-</div>
+</div> 
         <table class="table text-center">
               <thead>
                 <tr>
@@ -47,5 +46,83 @@
       </div>
     
 </div>
+</div>
+</div>-->
+
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center">
+    <h2>MIS TURNOS</h2>
+</div>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+<div class="table-container">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="dia">
+    <th mat-header-cell *matHeaderCellDef> Día</th>
+    <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="horario">
+    <th mat-header-cell *matHeaderCellDef> Horario </th>
+    <td mat-cell *matCellDef="let element"> {{element.hora}}:{{element.minutos}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="especialidad">
+    <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+    <td mat-cell *matCellDef="let element"> {{element.especialidad}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="especialista">
+    <th mat-header-cell *matHeaderCellDef> Especilista </th>
+    <td mat-cell *matCellDef="let element"> {{element.correoEspecialista}}  </td>
+  </ng-container>  
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="paciente">
+    <th mat-header-cell *matHeaderCellDef> Paciente </th>
+    <td mat-cell *matCellDef="let element"> {{element.correoPaciente}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="accion">
+    <th mat-header-cell *matHeaderCellDef> Acción </th>
+    <td mat-cell *matCellDef="let element">
+      <button class="btn btn-danger" *ngIf="element.estado == 'pendiente' || element.estado == 'aceptado'" (click)="cancelarTurno('paciente', element)">
+        <mat-icon class="mr-2">cancel</mat-icon>
+        Cancelar
+      </button>
+      <button class="btn btn-primary" *ngIf="element.estado == 'realizado'">
+        <mat-icon class="mr-2">assignment_turned_in</mat-icon>
+        Encuesta
+      </button>
+      <button class="btn btn-primary" *ngIf="element.estado == 'realizado'">
+        <mat-icon class="mr-2">star</mat-icon>
+        Calificar Turno
+      </button>
+      <button class="btn btn-primary" (click)="verresenia(element)" *ngIf="element.comentariopaciente != 'No hay comentario' || element.comentarioespecialista != 'No hay comentario' || element.comentarioadmin != 'No hay comentario' || element.diagnostico != 'No hay comentario'">
+        <mat-icon class="mr-2">comment</mat-icon>
+        Ver Reseña
+      </button>
+    </td>
+    
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>
 </div>

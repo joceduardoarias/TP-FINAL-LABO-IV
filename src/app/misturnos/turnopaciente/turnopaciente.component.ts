@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, OnInit, ViewChild } from '@angular/core';
 import { Historiaclinica } from 'src/app/clases/historiaclinica';
 import { AgregarestadoturnoService } from 'src/app/services/agregarestadoturno.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HistoriaClinicaService } from 'src/app/services/historia-clinica.service';
 import { HorariosturnosService } from 'src/app/services/horariosturnos.service';
 import Swal from 'sweetalert2';
-
+import {MatTableDataSource} from '@angular/material/table';
+// import {MatInputModule} from '@angular/material/input';
+// import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 @Component({
   selector: 'app-turnopaciente',
   templateUrl: './turnopaciente.component.html',
-  styleUrls: ['./turnopaciente.component.css']
+  styleUrls: ['./turnopaciente.component.css']  
 })
 export class TurnopacienteComponent implements OnInit {
   historiaclinicaa:any = [];
@@ -18,12 +21,24 @@ export class TurnopacienteComponent implements OnInit {
   eestimado = "hola";
   resenia:boolean = false;
   reseniaActual:any;
+  displayedColumns: string[] = ['dia', 'horario', 'especialidad', 'paciente', 'accion'];  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  ELEMENT_DATA: any[] = [];
+    dataSource:any = new MatTableDataSource<any>(this.ELEMENT_DATA)
 
   constructor(public auth:AuthService,private agregarestadoturno:AgregarestadoturnoService,private hsturnos:HorariosturnosService,private historiaclinica:HistoriaClinicaService) 
   {
-    this.agregarestadoturno.getAll().valueChanges().subscribe(e=>{
-      this.list = e;
-      
+    this.agregarestadoturno.getAll().valueChanges().subscribe(e=>{      
+      let aux = [];
+      console.log(this.list);
+      for (var item of e) {
+        if (item.correoPaciente == auth.correologeado) {
+          aux.push(item);
+        }
+      }
+      this.list = aux;
+      this.dataSource = new MatTableDataSource(this.list);
+      this.ngAfterViewInit();
     })
     this.historiaclinica.getAll().valueChanges().subscribe(e=>{
       this.historiaclinicaa = e;
@@ -31,6 +46,11 @@ export class TurnopacienteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    console.log(this.dataSource.paginator);
+    
   }
   finalizado(data:any)
   {
@@ -230,12 +250,13 @@ Swal.fire({
   customClass: {    
     cancelButton: 'btn btn-danger'
   },
-  buttonsStyling: false
+  buttonsStyling: false,
+  width:"800px"
 });
   }
   tableHtml(data){
     const tablaHTML = `
-    <div class="table-responsive">
+    <div class="table-responsive" style="max-width: 700px;">
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -321,6 +342,14 @@ Swal.fire({
     this.agregarestadoturno.getAll().get().subscribe(e=>{e.forEach(e=>{
       this.list.push(e.data());
     })})
-  }
+  }  
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }

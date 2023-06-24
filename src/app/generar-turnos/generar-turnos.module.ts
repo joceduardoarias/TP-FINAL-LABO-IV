@@ -6,7 +6,10 @@ import { TurnosprincipalComponent } from './turnosprincipal/turnosprincipal.comp
 import { ElegirEspecialistaComponent } from './elegir-especialista/elegir-especialista.component';
 import { ElegirEspecialidadComponent } from './elegir-especialidad/elegir-especialidad.component';
 import { ElegirHorariosComponent } from './elegir-horarios/elegir-horarios.component';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,11 @@ import { ElegirHorariosComponent } from './elegir-horarios/elegir-horarios.compo
   ],
   imports: [
     CommonModule,
-    GenerarTurnosRoutingModule
+    GenerarTurnosRoutingModule,
+    MatCardModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatButtonModule
   ]
 })
 export class GenerarTurnosModule { }

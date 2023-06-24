@@ -256,14 +256,14 @@ Swal.fire({
   }
   tableHtml(data){
     const tablaHTML = `
-    <div class="table-responsive" style="max-width: 700px;">
+    <div class="table-responsive" style="max-height: 200px; overflow-y: auto;">
   <table class="table table-bordered">
     <thead>
       <tr>
-      <th scope="col">Comentario Paciente</th>
-      <th scope="col">Comentario Especialista</th>
-      <th scope="col">Comentario Administrador</th>
-      <th scope="col">Diagnóstico</th>
+      <th scope="col" style="min-width: 150px">Comentario Paciente</th>
+      <th scope="col" style="min-width: 150px">Comentario Especialista</th>
+      <th scope="col" style="min-width: 150px">Comentario Administrador</th>
+      <th scope="col" style="min-width: 150px">Diagnóstico</th>
       </tr>
     </thead>
     <tbody>      

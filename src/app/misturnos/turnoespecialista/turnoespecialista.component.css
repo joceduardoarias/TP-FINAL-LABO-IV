@@ -47,10 +47,34 @@
     100%{right: -100vh;top:0}
 }
 table {
-    width: 50%;
+    width: 100%;
   }
-  .table-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-  }
+    
+    .mat-mdc-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+      
+    .centered-input {
+      margin-bottom: 16px;
+      width: 300px; 
+    }
+    
+    .centered-paginator {
+      margin-top: 16px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* height: 100vh; */
+    }
+    
+    .table-container {
+      width: 100%;
+      margin-top: 20px;
+    }
+    button{
+      min-width: 158px;
+    }

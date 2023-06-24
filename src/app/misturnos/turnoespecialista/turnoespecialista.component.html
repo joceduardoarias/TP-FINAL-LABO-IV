@@ -1,11 +1,10 @@
-<div class="d-flex justify-content-center align-items-center">
+<!-- <div class="d-flex justify-content-center align-items-center">
   <div class="general d-flex justify-content-center align-items-center">
     <div class="table-responsive">
       <div class="d-flex justify-content-center align-items-center">
         <h2>MIS TURNOS</h2>
       </div>
-      <div class="table-responsive segundogeneral">       
-        <!-- Sección de filtrado -->
+      <div class="table-responsive segundogeneral">               
         <div class="d-flex justify-content-center align-items-center">
           <div class="d-flex tt">
             <input
@@ -32,7 +31,7 @@
           </div>
         </div>
         
-        <!-- <table class="table text-center">
+         <table class="table text-center">
               <thead>
                 <tr>
                   <th scope="col">Dia</th>
@@ -61,7 +60,7 @@
                     </div>
                 </tr>
               </tbody>
-            </table> -->
+            </table> 
         <table class="table text-center table-striped table-hover">
           <thead class="thead-dark">
             <tr>
@@ -75,7 +74,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of list">
-              <!-- Column values... -->
+              
               <td *ngIf="item.correoEspecialista == auth.correologeado">
                 {{ item.dia }}
               </td>
@@ -162,61 +161,129 @@
       </div>
     </div>
   </div>
-  <!-- <div class="d-flex justify-content-center align-items-center" *ngIf="resenia">
-<table class="tam" >
-<thead>
-  <th scope="col">Comentario Paciente</th>
-  <th scope="col">Comentario Especialista</th>
-  <th scope="col">Comentario Administrador</th>
-  <th scope="col">Diagnóstico</th>
-
-</thead>
-<tbody>
-  <tr>
-    <td>{{reseniaActual.comentariopaciente}} </td>
-    <td>{{reseniaActual.comentarioespecialista}}</td>
-    <td>{{reseniaActual.comentarioadmin}}</td>
-    <td>{{reseniaActual.diagnostico}}</td>
-  
-  </tr>
-</tbody>
-</table>
 </div> -->
+
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center">
+    <h2>MIS TURNOS</h2>
 </div>
-<div *ngIf="resenia" class="table-container">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+<div class="table-container">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="Comentario Paciente">
-      <th mat-header-cell *matHeaderCellDef>Comentario Paciente</th>
-      <td mat-cell *matCellDef="let element">
-        {{ element.comentariopaciente }}
-      </td>
+  <!-- Position Column -->
+  <ng-container matColumnDef="dia">
+    <th mat-header-cell *matHeaderCellDef> Día</th>
+    <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="horario">
+    <th mat-header-cell *matHeaderCellDef> Horario </th>
+    <td mat-cell *matCellDef="let element"> {{element.hora}}:{{element.minutos}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="especialidad">
+    <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+    <td mat-cell *matCellDef="let element"> {{element.especialidad}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="especialista">
+    <th mat-header-cell *matHeaderCellDef> Especilista </th>
+    <td mat-cell *matCellDef="let element"> {{element.correoEspecialista}}  </td>
+  </ng-container>  
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="paciente">
+    <th mat-header-cell *matHeaderCellDef> Paciente </th>
+    <td mat-cell *matCellDef="let element"> {{element.correoPaciente}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="accion">
+    <th mat-header-cell *matHeaderCellDef> Acción </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="btn-group" role="group">                                    
+        <button
+          class="btn btn-primary"
+          *ngIf="element.estado == 'realizado'"
+        >
+          COMPLETAR ENCUESTA
+        </button>
+        <button
+          class="btn btn-primary"
+          *ngIf="element.estado == 'realizado'"
+        >
+          CALIFICAR TURNO
+        </button>                 
+        <button
+          type="button"
+          class="btn btn-success"
+          *ngIf="element.estado == 'pendiente'"
+          (click)="ejecutarAccion('aceptar', element)"
+        >
+          <i class="fas fa-check"></i> Aceptar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          *ngIf="element.estado == 'pendiente'"
+          (click)="cancelarTurno('especialista', element)"
+        >
+          <i class="fa fa-trash"></i> Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          *ngIf="element.estado == 'pendiente'"
+          (click)="RechazarTurno('especialista', element)"
+        >
+          <i class="fa fa-times"></i> Rechazar
+        </button>
+        <button class="btn btn-primary" 
+        *ngIf="element.estado == 'aceptado'"
+        (click)="finalizado(element)"
+        >
+          <i class="fa fa-check"></i> Finalizar
+        </button>
+        <button class="btn btn-primary" 
+        *ngIf="element.estado == 'realizado'"
+        >
+          <i class="fa fa-clipboard-list"></i> Encuesta
+        </button>
+        <button class="btn btn-primary"
+        *ngIf="element.estado == 'realizado'"
+        >
+          <i class="fa fa-star"></i> Calificar
+        </button>
+        <button  (click)="verresenia(element)"
+        class="btn btn-primary"
+        *ngIf="
+          element.comentariopaciente != 'No hay comentario' ||
+          element.comentarioespecialista != 'No hay comentario' ||
+          element.comentarioadmin != 'No hay comentario' ||
+          element.diagnostico != 'No hay comentario'
+        ">
+          <i class="fa fa-eye"></i> Reseña</button>
+      </div>
+    </td>
+    
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="Comentario Especialista">
-      <th mat-header-cell *matHeaderCellDef>Comentario Especialista</th>
-      <td mat-cell *matCellDef="let element">
-        {{ element.comentarioespecialista }}
-      </td>
-    </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="Comentario Administrador">
-      <th mat-header-cell *matHeaderCellDef>Comentario Administrador</th>
-      <td mat-cell *matCellDef="let element">{{ element.comentarioadmin }}</td>
-    </ng-container>
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="Diagnóstico">
-      <th mat-header-cell *matHeaderCellDef>Diagnóstico</th>
-      <td mat-cell *matCellDef="let element">{{ element.diagnostico }}</td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
 </div>

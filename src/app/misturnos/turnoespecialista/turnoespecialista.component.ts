@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Historiaclinica } from 'src/app/clases/historiaclinica';
 import { AgregarestadoturnoService } from 'src/app/services/agregarestadoturno.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HistoriaClinicaService } from 'src/app/services/historia-clinica.service';
 import { HorariosturnosService } from 'src/app/services/horariosturnos.service';
 import Swal from 'sweetalert2';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
 
-
-const ELEMENT_DATA: any[] = [
-  {comentariopaciente: "", comentarioespecialista: "", comentarioadmin: "", diagnostico: ""}  
-];
 @Component({
   selector: 'app-turnoespecialista',
   templateUrl: './turnoespecialista.component.html',
@@ -22,22 +20,34 @@ export class TurnoespecialistaComponent implements OnInit {
   resenia:boolean = false;
   reseniaActual:any;
   ditt:any = "hola";
-  displayedColumns: string[] = ['Comentario Paciente', 'Comentario Especialista', 'Comentario Administrador', 'Diagnóstico'];
-  dataSource = ELEMENT_DATA;
-  
+  displayedColumns: string[] = ['dia', 'horario', 'especialidad', 'paciente', 'accion'];  
+  dataSource:any = new MatTableDataSource<any>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(public auth:AuthService,private agregarestadoturno:AgregarestadoturnoService,private hsturnos:HorariosturnosService,private historiaclinica:HistoriaClinicaService) 
   {
   
     
     this.agregarestadoturno.getAll().valueChanges().subscribe(e=>{
-      this.list = e;
+      let aux = [];
+      console.log(this.list);
+      for (var item of e) {
+        if (item.correoEspecialista == auth.correologeado) {
+          aux.push(item);
+        }
+      }
+      this.list = aux;
+      this.dataSource = new MatTableDataSource(this.list);
+      this.ngAfterViewInit();
       
     })
     this.historiaclinica.getAll().valueChanges().subscribe(e=>{
       this.historiaclinicaa = e;
     })
    }
-
+   ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;        
+  }
   ngOnInit(): void {
   }
   finalizado(data:any)
@@ -310,16 +320,46 @@ export class TurnoespecialistaComponent implements OnInit {
   }
   verresenia(data:any)
   {
-    this.reseniaActual = data;
-    for (var comentario of ELEMENT_DATA) {
-      comentario.comentariopaciente = this.reseniaActual.comentariopaciente;
-      comentario.comentarioespecialista = this.reseniaActual.comentarioespecialista;
-      comentario.comentarioadmin = this.reseniaActual.comentarioadmin;
-      comentario.diagnostico = this.reseniaActual.diagnostico
-    }
+    this.reseniaActual = data;   
     this.resenia  = !this.resenia;
+    var tablaHTML = this.tableHtml(this.reseniaActual);
+    Swal.fire({
+      title: 'Reseña',
+      html: tablaHTML,
+      showConfirmButton: false,
+      cancelButtonText: "Cerrar",
+      showCancelButton: true,
+      showCloseButton: true,
+      customClass: {    
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false,
+      width:"800px"
+    });
   }
-
+  tableHtml(data){
+    const tablaHTML = `
+    <div class="table-responsive" style="max-height: 200px; overflow-y: auto;">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th scope="col" style="min-width: 150px">Comentario Paciente</th>
+      <th scope="col" style="min-width: 150px">Comentario Especialista</th>
+      <th scope="col" style="min-width: 150px">Comentario Administrador</th>
+      <th scope="col" style="min-width: 150px">Diagnóstico</th>
+      </tr>
+    </thead>
+    <tbody>      
+    <td>${data.comentariopaciente} </td>
+    <td>${data.comentarioespecialista}</td>
+    <td>${data.comentarioadmin}</td>
+    <td>${data.diagnostico}</td>          
+    </tbody>
+  </table>
+  </div>
+`;
+ return tablaHTML;
+  }
   quehago(dia:any,hora:any,minutos:any,email:any)
   {
     let arraytercero:any = [];
@@ -385,5 +425,13 @@ export class TurnoespecialistaComponent implements OnInit {
     this.agregarestadoturno.getAll().get().subscribe(e=>{e.forEach(e=>{
       this.list.push(e.data());
     })})
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

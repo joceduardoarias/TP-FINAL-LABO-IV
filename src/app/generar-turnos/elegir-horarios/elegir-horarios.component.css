@@ -5,11 +5,7 @@
     justify-content: center;
     align-items: center;
 }
-#bb
-{
-    width: 90px;
- 
-}
+
 .efe
 {
    min-height: 50px;
@@ -24,3 +20,215 @@
     padding-right: 200px;
 }
 
+  /*  */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    height: 100vh;
+    background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Quicksand", sans-serif;
+    user-select: none;
+  }
+  
+  .card {
+    width: 316px;
+    height: fit-content;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #efefef;
+  }
+  
+  .calendar-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #efefef;
+  }
+  
+  .calendar-toolbar > .current-month {
+    font-size: 20px;
+    font-weight: bold;
+    color: #19181a;
+  }
+  
+  .calendar-toolbar > [class$="month-btn"] {
+    width: 40px;
+    aspect-ratio: 1;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    color: #19181a;
+    background: #f8f7fa;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  .weekdays,
+  .calendar-days {
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline: 18px;
+  }
+  .weekdays {
+    padding-top: 12px;
+  }
+  .calendar-days {
+    padding-bottom: 12px;
+  }
+  
+  .weekday-name,
+  [class$="-day"] {
+    width: 40px;
+    height: 40px;
+    color: #19181a;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .weekday-name {
+    color: #19181a;
+    font-weight: 700;
+  }
+  
+  .current-day {
+    background-color: rgb(112, 71, 235);
+    color: #f8f7fa;
+    border-radius: 15px;
+    font-weight: 700;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  
+  .padding-day {
+    color: #a5a5a5;
+    user-select: none;
+  }
+  
+  .calendar-toolbar > [class$="month-btn"]:hover,
+  .month-day:hover,
+  .btn:hover {
+    border-radius: 15px;
+    background-color: #f8f7fa;
+    color: rgb(112, 71, 235);
+    transition: 0.1s;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 0px 1.5px rgb(112, 71, 235);
+  }
+  
+  .calendar-toolbar > [class$="month-btn"]:focus,
+  .month-day:focus,
+  .btn:focus {
+    border-radius: 15px;
+    background-color: rgb(112, 71, 235);
+    color: #f8f7fa;
+  }
+  
+  .goto-buttons {
+    border-top: 1px solid #efefef;
+    padding-block: 18px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .btn {
+    background: #f8f7fa;
+    border: none;
+    border-radius: 15px;
+    padding: 11px 13px;
+    color: #19181a;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 1px;
+    box-shadow: 0px 0px 0px #efefef;
+  }
+
+  /*  */
+  .scroll-container {
+    max-height: 300px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  th {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+  }
+  
+  .dia-cell {
+    white-space: nowrap;
+    text-align: center;
+  }
+  
+  .horario-cell {
+    padding: 10px;
+  }
+  
+  .efe {
+    margin-bottom: 5px;
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  /* Spinner */
+  .spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

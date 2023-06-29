@@ -1,4 +1,4 @@
-<div class="d">
+<!-- <div class="d">
     <div>
         <div  class="spinner-border" role="status" *ngIf="cargando" >
           </div>
@@ -7,10 +7,41 @@
     <div *ngFor="let item of arraytercero">
             <button class="btn btn-danger"> {{item.dia}} </button>
         <div *ngFor="let ese of item.horario" class="efe">
-          
-            <!-- <button id="bb" (click) = "quehago(item.dia,ese.hora,ese.minutos)" *ngIf="ese.estado == 'habilitado'"  class="btn btn-primary">{{ese.hora}}:{{ese.minutos}} </button> -->
+                      
             <button id="bb" (click) = "quehago(item.dia,ese.hora,ese.minutos)" *ngIf="ese.estado == 'habilitado'"  class="btn btn-primary">{{ese.hora}}:{{ese.minutos}} </button>
         </div>
     </div>
+</div>
+</div> -->
+<!-- Spinner -->
+<!-- <div>
+  <div  class="spinner-border" role="status" *ngIf="cargando" >
+    </div>
+</div> -->
+<div  class="spinner-container" *ngIf="cargando" >
+  <div class="spinner"></div>
+</div>
+
+<!-- Calendar -->
+<div *ngIf="!cargando">
+<div class="scroll-container">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let item of arraytercero" class="dia-cell">{{item.dia}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let item of arraytercero" class="horario-cell">
+          <div *ngFor="let ese of item.horario" class="efe">
+            <button id="bb" (click)="quehago(item.dia, ese.hora, ese.minutos)" *ngIf="ese.estado === 'habilitado'" class="btn">
+              {{ese.hora}}:{{ese.minutos}}
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 </div>

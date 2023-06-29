@@ -33,7 +33,7 @@ export class ElegirHorariosComponent implements OnInit {
     }, 1200);
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.calculartiempo(this.ahora,this.objectoActual.dias,this.objectoActual.hora.horamin,this.objectoActual.hora.horamax).then(ese=>{
       this.desub  = this.hsturnos.getAll().valueChanges().subscribe(e=>{
         this.desub.unsubscribe();

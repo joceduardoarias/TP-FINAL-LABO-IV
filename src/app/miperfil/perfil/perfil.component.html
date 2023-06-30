@@ -258,12 +258,12 @@
                 class="form-check-input"
                 id="flexCheck1"
                 type="checkbox"
-                [checked]="day.checked"
+                [(ngModel)]="day.checked" 
                 (click)="dias(day)"
               />
-              <label class="form-check-label" for="flexCheck1"
-                ><span class="fst-italic pl-1">{{ day.name }}</span></label
-              >
+              <label class="form-check-label" for="flexCheck1">
+                <span class="fst-italic pl-1">{{ day.name }}</span>
+              </label>
             </div>
             <div class="">
               <label for="dni" class="form-label">Horario disponible</label>

@@ -51,7 +51,7 @@ export class PerfilComponent implements OnInit {
   viernes: any;
   sabado: any;
   domingo: any;
-  arrayhoraaa: any = [];
+  arrayhoraaa: any[6] = [null,null,null,null,null,null,null];
   unespecialista!: Diahoraespecialista;
   historiaclinicaa: any = [];
   b: any;
@@ -64,6 +64,7 @@ export class PerfilComponent implements OnInit {
     { id: '3', name: 'Miercoles', checked: false },
     { id: '4', name: 'Jueves', checked: false },
     { id: '5', name: 'Viernes', checked: false },
+    { id: '6', name: 'Sabado', checked: false },
   ];
   horarios: { id: string; name: string; checked: boolean }[] = [
     { id: 'todo', name: 'Jornada completa (8:00 - 19:00)', checked: false },
@@ -111,17 +112,21 @@ export class PerfilComponent implements OnInit {
                 for (var dia of e.dias) {
                   for (var day of this.dayOfWeek) {
                     if (dia != null) {
-                      if (dia.toString() == day.id) {
+                      if (dia.toString() == day.id) {                        
                         day.checked = true;
+                        const index = parseInt(day.id, 10);
+                        this.arrayhoraaa[index - 1] = index;
                       }
                     }
                   }
                 }
                 this.setHorario(e.hora); 
+                console.log(this.arrayhoraaa);
               }             
             });
           }
-        });
+        });        
+        
       });
 
     if (this.auth.paciente) {
@@ -154,45 +159,46 @@ export class PerfilComponent implements OnInit {
         });
     }
 
-    this.arrayhoraaa[0] = null;
-    this.arrayhoraaa[1] = null;
-    this.arrayhoraaa[2] = null;
-    this.arrayhoraaa[3] = null;
-    this.arrayhoraaa[4] = null;
-    this.arrayhoraaa[5] = null;
-    this.arrayhoraaa[6] = null;
+    // this.arrayhoraaa[0] = null;
+    // this.arrayhoraaa[1] = null;
+    // this.arrayhoraaa[2] = null;
+    // this.arrayhoraaa[3] = null;
+    // this.arrayhoraaa[4] = null;
+    // this.arrayhoraaa[5] = null;
+    // this.arrayhoraaa[6] = null;
   }
 
   enviar() {
+    debugger;
     let esperar;
     let data = (<HTMLInputElement>document.getElementById('select')).value;
     this.unespecialista = new Diahoraespecialista();
-    this.arrayhoraaa[0] = null;
-    this.arrayhoraaa[1] = null;
-    this.arrayhoraaa[2] = null;
-    this.arrayhoraaa[3] = null;
-    this.arrayhoraaa[4] = null;
-    this.arrayhoraaa[5] = null;
-    this.arrayhoraaa[6] = null;
-    if (this.lunes) {
-      this.arrayhoraaa[1] = 1;
-    }
-    if (this.martes) {
-      this.arrayhoraaa[2] = 2;
-    }
-    if (this.miercoles) {
-      this.arrayhoraaa[3] = 3;
-    }
-    if (this.jueves) {
-      this.arrayhoraaa[4] = 4;
-    }
-    if (this.viernes) {
-      this.arrayhoraaa[5] = 5;
-    }
-    if (this.sabado) {
-      this.arrayhoraaa[6] = 6;
-    }
-
+    // this.arrayhoraaa[0] = null;
+    // this.arrayhoraaa[1] = null;
+    // this.arrayhoraaa[2] = null;
+    // this.arrayhoraaa[3] = null;
+    // this.arrayhoraaa[4] = null;
+    // this.arrayhoraaa[5] = null;
+    // this.arrayhoraaa[6] = null;
+    // if (this.lunes) {
+    //   this.arrayhoraaa[1] = 1;
+    // }
+    // if (this.martes) {
+    //   this.arrayhoraaa[2] = 2;
+    // }
+    // if (this.miercoles) {
+    //   this.arrayhoraaa[3] = 3;
+    // }
+    // if (this.jueves) {
+    //   this.arrayhoraaa[4] = 4;
+    // }
+    // if (this.viernes) {
+    //   this.arrayhoraaa[5] = 5;
+    // }
+    // if (this.sabado) {
+    //   this.arrayhoraaa[6] = 6;
+    // }
+    
     this.unespecialista.dias = this.arrayhoraaa;
     this.unespecialista.email = this.datoUsuario.email;
     this.unespecialista.especialidad = (<HTMLInputElement>(
@@ -241,26 +247,13 @@ export class PerfilComponent implements OnInit {
         });
     });
   }
-  dias(data: any) {
-    if (data == 'lunes') {
-      this.lunes = !this.lunes;
-      console.log(data);
-    } else if (data == 'martes') {
-      this.martes = !this.martes;
-      console.log(data);
-    } else if (data == 'miercoles') {
-      this.miercoles = !this.miercoles;
-      console.log(data);
-    } else if (data == 'jueves') {
-      this.jueves = !this.jueves;
-      console.log(data);
-    } else if (data == 'viernes') {
-      this.viernes = !this.viernes;
-      console.log(data);
-    } else {
-      this.sabado = !this.sabado;
-      console.log(data);
-    }
+  dias(day: any) {        
+    const index = this.dayOfWeek.indexOf(day);
+    this.dayOfWeek[index].checked = !this.dayOfWeek[index].checked;
+    this.arrayhoraaa[index] =  this.dayOfWeek[index].checked ? parseInt(this.dayOfWeek[index].id, 10) : null;
+    console.log(this.dayOfWeek);
+    console.log(this.arrayhoraaa);
+   
   }
   hacerBusqueda() {
     this.nuevo = [];

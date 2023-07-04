@@ -9,7 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-// import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 @NgModule({
   declarations: [
     HistoriapacienteComponent
@@ -22,8 +22,7 @@ import {MatCardModule} from '@angular/material/card';
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    MatCardModule,
-    // MatCarouselModule
+    MatCardModule    
   ]
 })
 export class PacientesModule { }

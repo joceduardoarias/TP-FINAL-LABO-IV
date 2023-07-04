@@ -33,8 +33,7 @@ export class HistoriapacienteComponent implements OnInit {
   { 
     var users;
     us.getAll().valueChanges().subscribe((e:any)=>{
-      users = e;
-      console.log(users);
+      users = e;      
       
       for(let i = 0; i<e.length;i++)
       {
@@ -52,8 +51,7 @@ export class HistoriapacienteComponent implements OnInit {
           this.lista2.push(elemento);
         }
       }
-      
-      // console.log(this.lista2);
+            
       for (var item1 of this.lista2) {
         for (var item2 of users) {
           if (item1.correopaciente == item2.email) {
@@ -61,7 +59,7 @@ export class HistoriapacienteComponent implements OnInit {
           }
         }
       }
-      console.log(this.lista2);
+      (this.lista2);
       
      })
   }
@@ -83,7 +81,7 @@ export class HistoriapacienteComponent implements OnInit {
       }
       this.dataSource = new MatTableDataSource(this.historiaclinicaa);
       this.activo = true;
-      console.log(this.historiaclinicaa);
+      (this.historiaclinicaa);
       
      })
   }
@@ -99,14 +97,14 @@ export class HistoriapacienteComponent implements OnInit {
           Object.keys(this.historiaclinicaa[j].otros[i]).forEach((entry,index)=>{
            if(this.historiaclinicaa[j].otros[i][entry] == this.b)
            {
-            console.log(encontra2);
+            (encontra2);
             
             if(encontra2 == 0)
             {
               encontra2++;
               no = 1;
               this.nuevo.push(this.historiaclinicaa[j]);
-              console.log(encontra2);
+              (encontra2);
               
             }
 

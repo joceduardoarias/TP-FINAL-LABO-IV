@@ -234,10 +234,7 @@
   </div>
 </div>
 <!-- CHECK LIST NUEVO -->
-<div
-  class="holder d-flex align-items-center justify-content-center"
-  *ngIf="auth.especialista"
->
+<div class="holder d-flex align-items-center justify-content-center" *ngIf="auth.especialista">
   <div class="container">
     <!-- FOR DEMO PURPOSE -->
 
@@ -254,13 +251,8 @@
               </div>
             </div>
             <div class="form-check mb-3" *ngFor="let day of dayOfWeek">
-              <input
-                class="form-check-input"
-                id="flexCheck1"
-                type="checkbox"
-                [(ngModel)]="day.checked" 
-                (click)="dias(day)"
-              />
+              <input class="form-check-input" id="flexCheck1" type="checkbox" [(ngModel)]="day.checked"
+                (click)="dias(day)" />
               <label class="form-check-label" for="flexCheck1">
                 <span class="fst-italic pl-1">{{ day.name }}</span>
               </label>
@@ -273,31 +265,20 @@
                 <option value="maniana">Mañana (8:00 - 12:00)</option>
                 <option value="tarde">Tarde (12:00 - 19:00)</option>
               </select> -->
-              <select
-                class="form-control"
-                id="select"
-                [(ngModel)]="selectedOption"
-              >
+              <select class="form-control" id="select" [(ngModel)]="selectedOption">
                 <option *ngFor="let item of horarios" [value]="item.id">
                   {{ item.name }}
                 </option>
               </select>
               <label for="dni" class="form-label">Horario disponible</label>
               <select class="form-control" id="select2">
-                <option
-                  *ngFor="let item of datoUsuario.especialidades"
-                  [value]="item"
-                >
+                <option *ngFor="let item of datoUsuario.especialidades" [value]="item">
                   {{ item }}
                 </option>
               </select>
             </div>
             <div class="d-flex align-items-center mb-4 pb-4 pt-4 border-bottom">
-              <button
-                type="button"
-                (click)="enviar()"
-                class="btn btn-primary btn-block"
-              >
+              <button type="button" (click)="enviar()" class="btn btn-primary btn-block">
                 Confirmar Horarios
               </button>
             </div>
@@ -308,20 +289,17 @@
   </div>
 </div>
 <!-- HISTORIA CLINICA -->
-<div
-  *ngIf="cargo && auth.paciente == true"
-  style="
+<div *ngIf="cargo && auth.paciente == true" style="
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 10px;
     margin-bottom: 10px;
-  "
->
+  ">
   <div id="tablaPDF">
     <div style="text-align: right; margin-bottom: 15px">
       <span style="display: inline-block; margin-right: 10px">{{
         auth.correologeado
-      }}</span>
+        }}</span>
       <span style="display: inline-block">{{ fecha }}</span>
     </div>
 
@@ -336,25 +314,85 @@
     />
   </mat-form-field> -->
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container
-        *ngFor="let column of displayedColumns"
-        [matColumnDef]="column"
-      >
-        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-        <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
-      </ng-container>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <!-- Position Column -->
+    <ng-container matColumnDef="altura">
+      <th mat-header-cell *matHeaderCellDef> Altura</th>
+      <td mat-cell *matCellDef="let element"> {{element.altura}} </td>
+    </ng-container>
 
-      <!-- Row shown when there is no matching data. -->
-      <!-- <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">
-        No hay datos para el filtro "{{ input.value }}"
+    <!-- Name Column -->
+    <ng-container matColumnDef="peso">
+      <th mat-header-cell *matHeaderCellDef> Peso </th>
+      <td mat-cell *matCellDef="let element"> {{element.peso}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="presion">
+      <th mat-header-cell *matHeaderCellDef> Presión </th>
+      <td mat-cell *matCellDef="let element"> {{element.presion}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="temperatura">
+      <th mat-header-cell *matHeaderCellDef> Temperatura</th>
+      <td mat-cell *matCellDef="let element"> {{element.temperatura
+        }} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="dia">
+      <th mat-header-cell *matHeaderCellDef> Día</th>
+      <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="hora">
+      <th mat-header-cell *matHeaderCellDef> Hora </th>
+      <td mat-cell *matCellDef="let element"> {{element.hora}} : {{element.minutos}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="val1">
+      <th mat-header-cell *matHeaderCellDef> Val_1 </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <div *ngFor="let otro of element.otros; let i = index">
+
+          <p *ngIf="i == 0">{{ otro.clave }} : {{ otro.valor }}</p>
+
+        </div>
       </td>
-    </tr> -->
-    </table>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="val2">
+      <th mat-header-cell *matHeaderCellDef> Val_2 </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let otro of element.otros; let i = index">
+
+          <p *ngIf="i == 1">{{ otro.clave }} : {{ otro.valor }}</p>
+
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="val3">
+      <th mat-header-cell *matHeaderCellDef> Val_3 </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let otro of element.otros; let i = index">
+
+          <p *ngIf="i == 2">{{ otro.clave }} : {{ otro.valor }}</p>
+
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+  </table>
   </div>
   <div style="text-align: right; margin-top: 15px">
     <span style="display: inline-block" (click)="makePDF()">

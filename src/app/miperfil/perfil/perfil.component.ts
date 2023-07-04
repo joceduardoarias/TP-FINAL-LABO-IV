@@ -23,6 +23,7 @@ export interface HistoriaClinicaElement {
   temperatura: string;
   dia: string;
   hora: string;
+  minutos: string;
   val1: any;
   val2: any;
   val3: any;
@@ -121,7 +122,7 @@ export class PerfilComponent implements OnInit {
                   }
                 }
                 this.setHorario(e.hora); 
-                console.log(this.arrayhoraaa);
+                
               }             
             });
           }
@@ -148,15 +149,18 @@ export class PerfilComponent implements OnInit {
                 temperatura: e[i].temepratura,
                 dia: e[i].dia,
                 hora: e[i].hora,
-                val1: e[i].otros[0].clave + ' : ' + e[i].otros[0].valor,
-                val2: e[i].otros[1].clave + ' : ' + e[i].otros[1].valor,
-                val3: e[i].otros[2].clave + ' : ' + e[i].otros[2].valor,
+                minutos: e[i].minutos,
+                val1: e[i].otros.length > 0 ? e[i].otros[0]?.clave + ' : ' + e[i].otros[0]?.valor : '',
+                val2: e[i].otros.length > 0 ? e[i].otros[1]?.clave + ' : ' + e[i].otros[1]?.valor : '',
+                val3: e[i].otros.length > 0 ? e[i].otros[2]?.clave + ' : ' + e[i].otros[2]?.valor : '',
               });
             }
           }
 
-          this.dataSource.data = data;
-        });
+          this.dataSource.data = data;   
+           
+        });        
+        
     }
 
     // this.arrayhoraaa[0] = null;
@@ -250,9 +254,7 @@ export class PerfilComponent implements OnInit {
   dias(day: any) {        
     const index = this.dayOfWeek.indexOf(day);
     this.dayOfWeek[index].checked = !this.dayOfWeek[index].checked;
-    this.arrayhoraaa[index] =  this.dayOfWeek[index].checked ? parseInt(this.dayOfWeek[index].id, 10) : null;
-    console.log(this.dayOfWeek);
-    console.log(this.arrayhoraaa);
+    this.arrayhoraaa[index] =  this.dayOfWeek[index].checked ? parseInt(this.dayOfWeek[index].id, 10) : null;    
    
   }
   hacerBusqueda() {

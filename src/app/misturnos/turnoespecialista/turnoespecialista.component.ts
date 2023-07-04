@@ -30,7 +30,7 @@ export class TurnoespecialistaComponent implements OnInit {
     
     this.agregarestadoturno.getAll().valueChanges().subscribe(e=>{
       let aux = [];
-      console.log(this.list);
+      console.log(this.list,"coso");
       for (var item of e) {
         if (item.correoEspecialista == auth.correologeado) {
           aux.push(item);
@@ -83,36 +83,51 @@ export class TurnoespecialistaComponent implements OnInit {
 
         Swal.fire({
           title: 'Historia Clinica',
-          html: `<input type="text" id="altura" class="swal2-input" placeholder="Altura (En metros)">
-          <input type="text" id="peso" class="swal2-input" placeholder="Peso (En kilos)">,
-          <input type="text" id="temperatura" class="swal2-input" placeholder="Temperatura (En ~Grado Celcius)">
-          <input type="text" id="presion" class="swal2-input" placeholder="Presión">
-          <input type="number" id="numero" class="swal2-input" placeholder="Tato tipo Number"><br>
-          <span>Otros<span>
-          <div class="row">
-          <div class="col-6">
-          <input type="text" id="clave1" class="swal2-input col-6" placeholder="Clave (opcional)">
+          html:`
+          <div class="form-group">
+            <label for="altura">Altura (En metros)</label>
+            <input type="text" id="altura" class="form-control" placeholder="Altura (En metros)">
           </div>
-          <div class="col-6">
-          <input type="text" id="valor1" class="swal2-input col-6" placeholder="Valor (opcional)">
+          <div class="form-group">
+            <label for="peso">Peso (En kilos)</label>
+            <input type="text" id="peso" class="form-control" placeholder="Peso (En kilos)">
           </div>
-  
-          <div class="col-6">
-          <input type="text" id="clave2" class="swal2-input col-6" placeholder="Clave (opcional)">
+          <div class="form-group">
+            <label for="temperatura">Temperatura (En ~Grado Celcius)</label>
+            <input type="text" id="temperatura" class="form-control" placeholder="Temperatura (En ~Grado Celcius)">
           </div>
-          <div class="col-6">
-          <input type="text" id="valor2" class="swal2-input col-6" placeholder="Valor (opcional)">
+          <div class="form-group">
+            <label for="presion">Presión</label>
+            <input type="text" id="presion" class="form-control" placeholder="Presión">
           </div>
-  
-          <div class="col-6">
-          <input type="text" id="clave3" class="swal2-input col-6" placeholder="Clave (opcional)">
+          <div class="form-group">
+            <label for="numero">Tato tipo Number</label>
+            <input type="number" id="numero" class="form-control" placeholder="Tato tipo Number" min="0" max="100">
           </div>
-          <div class="col-6">
-          <input type="text" id="valor3" class="swal2-input col-6" placeholder="Valor (opcional)">
+          <div class="form-group">
+            <label>Otros</label>
+            <div class="row">
+              <div class="col-6">
+                <input type="text" id="clave1" class="form-control" placeholder="Clave (opcional)">
+              </div>
+              <div class="col-6">
+                <input type="text" id="valor1" class="form-control" placeholder="Valor (opcional)">
+              </div>
+              <div class="col-6">
+                <input type="text" id="clave2" class="form-control" placeholder="Clave (opcional)">
+              </div>
+              <div class="col-6">
+                <input type="text" id="valor2" class="form-control" placeholder="Valor (opcional)">
+              </div>
+              <div class="col-6">
+                <input type="text" id="clave3" class="form-control" placeholder="Clave (opcional)">
+              </div>
+              <div class="col-6">
+                <input type="text" id="valor3" class="form-control" placeholder="Valor (opcional)">
+              </div>
+            </div>
           </div>
-          </div>
-          `,
-          confirmButtonText: 'Enviar',
+        `,        confirmButtonText: 'Enviar',
           focusConfirm: false,
           preConfirm: () => {
             let altura!:any;

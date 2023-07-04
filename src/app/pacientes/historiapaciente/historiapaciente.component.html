@@ -1,70 +1,198 @@
-<div class="d-flex justify-content-center align-items-center">
+<!-- <div class="d-flex justify-content-center align-items-center">
 
-    <div>
-      <div *ngFor="let item of lista2">
-        <button (click) = "disparo(item)" class="btn btn-primary">{{item}}</button>
-      </div>
+  <div>
+    <div *ngFor="let item of lista2">
+      <button (click)="disparo(item)" class="btn btn-primary">{{item}}</button>
     </div>
-    
   </div>
 
+</div> -->
 
-<div *ngIf="activo" class="d-flex justify-content-center align-items-center">
-    <div class="d-flex  tt" >
-      <input class="form-control me-2" type="search" placeholder="Search" value="dasd"  aria-label="Search" [(ngModel)]="b">
-      <button class="btn btn-outline-success" (click) = "hacerBusqueda()" type="button">Search</button>
-      <button class="btn btn-outline-warning" type="button" (click) = "limpiar()">Limpiar</button>
-    </div>
+
+<!-- <div *ngIf="activo" class="d-flex justify-content-center align-items-center">
+  <div class="d-flex  tt">
+    <input class="form-control me-2" type="search" placeholder="Search" value="dasd" aria-label="Search"
+      [(ngModel)]="b">
+    <button class="btn btn-outline-success" (click)="hacerBusqueda()" type="button">Search</button>
+    <button class="btn btn-outline-warning" type="button" (click)="limpiar()">Limpiar</button>
+  </div>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+
+  <div #content *ngIf="activo">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="d-flex justify-content-between align-items-center taca">
+        <img class="im" src="../../../assets/imagennnn2.png" alt="">
+        <span>{{auth.correologeado}}</span>
+        <span>{{fecha}}</span>
+      </div>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-    
-     <div #content  *ngIf="activo">
-      <div class="d-flex justify-content-center align-items-center">
-       <div class="d-flex justify-content-between align-items-center taca">
-         <img class="im" src="../../../assets/imagennnn2.png" alt="">
-         <span>{{auth.correologeado}}</span>
-         <span>{{fecha}}</span>
-        </div>
+      <table class="table tt borde" *ngIf="historiaclinicaa != null">
+        <thead>
+          <tr>
+            <th scope="col">Altura</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Presion</th>
+            <th scope="col">Temperatura</th>
+            <th scope="col">Dia</th>
+            <th scope="col">Hora</th>
+            <th scope="col">val1</th>
+            <th scope="col">val2</th>
+            <th scope="col">val3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of historiaclinicaa ">
+            <td>{{item.altura}} </td>
+            <td>{{item.peso}} </td>
+            <td>{{item.presion}} </td>
+            <td>{{item.temepratura}} </td>
+            <td>{{item.dia}} </td>
+            <td>{{item.hora}}:{{item.minutos}} </td>
+            <td>{{item.valor1}} </td>
+            <td>{{item.valor2}} </td>
+            <td>{{item.valor3}} </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+
+
+    <div class="d-flex justify-content-center align-items-center">
+      <button *ngIf="activo" class="btn btn-primary" (click)="makePDF()">CREAR PDF</button>
+    </div>
+
+  </div>
+
+</div> -->
+
+<!-- Cards -->
+<div class="card-container">
+  <mat-card class="example-card" *ngFor="let item of lista2">
+    <mat-card-header class="card-header">
+      <mat-card-title-group class="card-title-group">
+        <mat-card-title class="card-title">{{item.correopaciente}}</mat-card-title>
+        <mat-card-subtitle class="card-subtitle">Small</mat-card-subtitle>
+      </mat-card-title-group>
+      <div class="card-image-container">
+        <img mat-card-lg-image [src]="item.imagen" class="card-image">
       </div>
-        <div class="d-flex justify-content-center align-items-center">
-                      <table class="table tt borde" *ngIf="historiaclinicaa != null">
-                      <thead>
-                      <tr>
-                        <th scope="col">Altura</th>
-                        <th scope="col">Peso</th>
-                        <th scope="col">Presion</th>
-                        <th scope="col">Temperatura</th>
-                        <th scope="col">Dia</th>
-                        <th scope="col">Hora</th>
-                        <th scope="col">val1</th>
-                        <th scope="col">val2</th>
-                        <th scope="col">val3</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr *ngFor="let item of historiaclinicaa " >
-                          <td >{{item.altura}} </td>
-                          <td >{{item.peso}} </td>
-                          <td >{{item.presion}} </td>
-                          <td >{{item.temepratura}} </td>
-                          <td >{{item.dia}} </td>
-                          <td >{{item.hora}}:{{item.minutos}} </td>
-                          <td >{{item.valor1}} </td>    
-                          <td >{{item.valor2}} </td>
-                          <td >{{item.valor3}} </td>
-                      </tr>
-                      </tbody>
-    
-                      </table>
-                    </div>
-                            
-                   
-    
-                    <div class="d-flex justify-content-center align-items-center">
-                      <button *ngIf="activo" class="btn btn-primary" (click) = "makePDF()" >CREAR PDF</button>
-                    </div>
-    
-                  </div>
-    
-                </div>
-    
+    </mat-card-header>
+    <mat-card-actions class="card-actions">
+      <button mat-button class="btn btn-primary" (click)="disparo(item.correopaciente)">Ver</button>    
+    </mat-card-actions>
+  </mat-card>
+  </div>
+
+<!-- Tabla nueva -->
+
+<div class="table-container" *ngIf="activo" id="tablaPDF">
+  
+  <div class="header-container">
+    <span class="auth-logueado"> Dr. {{ especialista.nombre }}</span>
+    <span class="fecha">{{ fecha }}</span>
+  </div>
+
+  <div class="filter-container">
+    <mat-form-field class="filter-field">
+      <mat-label>Filtrar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+  </div>
+ 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="altura">
+      <th mat-header-cell *matHeaderCellDef> Altura</th>
+      <td mat-cell *matCellDef="let element"> {{element.altura}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="peso">
+      <th mat-header-cell *matHeaderCellDef> Peso </th>
+      <td mat-cell *matCellDef="let element"> {{element.peso}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="presion">
+      <th mat-header-cell *matHeaderCellDef> Presión </th>
+      <td mat-cell *matCellDef="let element"> {{element.presion}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="temperatura">
+      <th mat-header-cell *matHeaderCellDef> Temperatura</th>
+      <td mat-cell *matCellDef="let element"> {{element.temepratura
+        }} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="dia">
+      <th mat-header-cell *matHeaderCellDef> Día</th>
+      <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="hora">
+      <th mat-header-cell *matHeaderCellDef> Hora </th>
+      <td mat-cell *matCellDef="let element"> {{element.hora}}:{{element.minutos}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="val1">
+      <th mat-header-cell *matHeaderCellDef> Val_1 </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <div *ngFor="let otro of element.otros; let i = index">
+
+          <p *ngIf="i == 0">{{ otro.clave }} : {{ otro.valor }}</p>
+
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="val2">
+      <th mat-header-cell *matHeaderCellDef> Val_2 </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let otro of element.otros; let i = index">
+
+          <p *ngIf="i == 1">{{ otro.clave }} : {{ otro.valor }}</p>
+
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="val3">
+      <th mat-header-cell *matHeaderCellDef> Val_3 </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let otro of element.otros; let i = index">
+
+          <p *ngIf="i == 2">{{ otro.clave }} : {{ otro.valor }}</p>
+
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->  
+</div>
+<div *ngIf="activo" class="download-container">
+  <span class="download" (click)="makePDF()">
+    <mat-icon>cloud_download</mat-icon>
+  </span>
+</div>
+
+

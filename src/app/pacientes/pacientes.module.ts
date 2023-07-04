@@ -4,8 +4,12 @@ import { CommonModule } from '@angular/common';
 import { PacientesRoutingModule } from './pacientes-routing.module';
 import { HistoriapacienteComponent } from './historiapaciente/historiapaciente.component';
 import { FormsModule } from '@angular/forms';
-
-
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+// import { MatCarouselModule } from '@ngmodule/material-carousel';
 @NgModule({
   declarations: [
     HistoriapacienteComponent
@@ -13,7 +17,13 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    PacientesRoutingModule
+    PacientesRoutingModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatCardModule,
+    // MatCarouselModule
   ]
 })
 export class PacientesModule { }

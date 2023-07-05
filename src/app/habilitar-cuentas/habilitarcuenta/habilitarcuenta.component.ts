@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { RegistrarUsuariosService } from 'src/app/services/registrar-usuarios.service';
-
+import {MatPaginator} from '@angular/material/paginator';
 @Component({
   selector: 'app-habilitarcuenta',
   templateUrl: './habilitarcuenta.component.html',
@@ -9,6 +10,10 @@ import { RegistrarUsuariosService } from 'src/app/services/registrar-usuarios.se
 export class HabilitarcuentaComponent implements OnInit {
 
   list:any [] = [];
+  displayedColumns: string[] = ['email', 'especialidades', 'estadoCuenta', 'habilitar', 'deshabilitar', 'imagen'];  
+  dataSource:any = new MatTableDataSource<any>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(private sv:RegistrarUsuariosService)
   {
     this.sv.getAll().valueChanges().subscribe(e=>{
@@ -20,10 +25,12 @@ export class HabilitarcuentaComponent implements OnInit {
         if(e[i].perfil == 'especialista')
         {
           this.list.push(e[i]);
-          console.log(e[i]);
+          // console.log(e[i]);
           
         }
       }
+      this.dataSource.data = this.list;      
+      this.dataSource.paginator = this.paginator;  
     })
   }
 

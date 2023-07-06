@@ -1,4 +1,4 @@
-.general
+/* .general
 {
     min-height: 100vh;
 }
@@ -9,10 +9,7 @@
     border-radius: 10px;
     border: solid 2px red;
 }
-td:hover
-{
-    background-color:aquamarine;
-}
+
 img
 {
     width: 50px;
@@ -45,4 +42,90 @@ span
 .taca
 {
     width: 600px;
-}
+} */
+/* TABLE */
+table {
+    width: 100%;
+  }
+    
+    .mat-mdc-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+          
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* height: 100vh; */
+    }
+    
+    .table-container {
+      width: 100%;
+      margin-top: 20px;
+    }
+    th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+      color: black;
+      /* Agrega cualquier otro estilo personalizado que desees */
+    }
+    /* DOWNLOAD BUTTON*/
+    .export-button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+      }
+      
+      .export-button-container button {
+        display: flex;
+        align-items: center;
+      }
+      
+      .export-button-container button mat-icon {
+        margin-right: 5px;
+      }
+            
+      .export-button {
+        background-color: #ff4081; /* Color personalizado */
+        color: white;
+        font-weight: bold;
+      }
+      
+      .export-button:hover {
+        background-color: #f50057; /* Color personalizado en hover */
+      }
+            
+      /* TABLA HISTRIA CLÍNICA  */
+      .table-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      .button-container {
+        margin-bottom: 10px;
+      }
+      
+      .table-responsive {
+        max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+        overflow-y: auto;
+      }
+      
+      .table th,
+      .table td {
+        vertical-align: middle;
+      }
+      
+      .table th {
+        background-color: #f8f9fa;
+        border-color: #dee2e6;
+      }
+      
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f8f9fa;
+      }
+      .form-control {
+        width: 20%;
+        margin-right: 10px;
+    }

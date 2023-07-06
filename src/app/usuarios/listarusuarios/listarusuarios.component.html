@@ -1,104 +1,218 @@
-<div class="general d-flex justify-content-center align-items-center">
-    <div class="table-responsive">
-        <div class="d-flex justify-content-center align-items-center">
-            <h2>Seccion Habilitar Cuenta</h2>
-        </div>
-      <div class="table-responsive segundogeneral">
-        <table class="table text-center">
-              <thead>
-                <tr>
-                  <th scope="col">numero</th>
-                  <th scope="col">nombre</th>
-                  <th scope="col">email</th>
-                  <td scope="col">dni</td>
-                  <td scope="col">perfil</td>
-                  <td scope="col">edad</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of list; let i = index">
-                  <td>{{i}} </td>
-                  <td>{{item.nombre}} </td>
-                  <td>{{item.email}} </td>
-                  <td>{{item.dni}} </td>
-                  <td>{{item.perfil}} </td>
-                  <td>{{item.edad}} </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="d-flex justify-content-center align-items-center">
-                <button (click) = "click()" class="btn btn-primary btn-lg">EXPORTAR</button>
-            </div>
-      </div>
-    
-</div>
-</div>
-
-
-<div class="d-flex justify-content-center align-items-center">
-
-  <div>
-    <div *ngFor="let item of lista2">
-      <button (click) = "disparo(item)" class="btn btn-primary">{{item}}</button>
-    </div>
-  </div>
-  
-</div>
-<div *ngIf="activo" class="d-flex justify-content-center align-items-center">
-<div class="d-flex  tt" >
-  <input class="form-control me-2" type="search" placeholder="Search" value="dasd"  aria-label="Search" [(ngModel)]="b">
-  <button class="btn btn-outline-success" (click) = "hacerBusqueda()" type="button">Search</button>
-  <button class="btn btn-outline-warning" type="button" (click) = "limpiar()">Limpiar</button>
-</div>
-</div>
-<div class="d-flex justify-content-center align-items-center">
-
- <div #content  *ngIf="activo">
-  <div class="d-flex justify-content-center align-items-center">
-   <div class="d-flex justify-content-between align-items-center taca">
-     <img class="im" src="../../../assets/imagennnn2.png" alt="">
-     <span>{{auth.correologeado}}</span>
-     <span>{{fecha}}</span>
-    </div>
-  </div>
+<!-- <div class="general d-flex justify-content-center align-items-center">
+  <div class="table-responsive">
     <div class="d-flex justify-content-center align-items-center">
-                  <table class="table tt borde" *ngIf="historiaclinicaa != null">
-                  <thead>
-                  <tr>
-                    <th scope="col">Altura</th>
-                    <th scope="col">Peso</th>
-                    <th scope="col">Presion</th>
-                    <th scope="col">Temperatura</th>
-                    <th scope="col">Dia</th>
-                    <th scope="col">Hora</th>
-                    <th scope="col">val1</th>
-                    <th scope="col">val2</th>
-                    <th scope="col">val3</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr *ngFor="let item of historiaclinicaa " >
-                      <td >{{item.altura}} </td>
-                      <td >{{item.peso}} </td>
-                      <td >{{item.presion}} </td>
-                      <td >{{item.temepratura}} </td>
-                      <td >{{item.dia}} </td>
-                      <td >{{item.hora}}:{{item.minutos}} </td>
-                      <td >{{item.valor1}} </td>    
-                      <td >{{item.valor2}} </td>
-                      <td >{{item.valor3}} </td>
-                  </tr>
-                  </tbody>
+      <h2>Seccion Habilitar Cuenta</h2>
+    </div>
+    <div class="table-responsive segundogeneral">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">numero</th>
+            <th scope="col">nombre</th>
+            <th scope="col">email</th>
+            <td scope="col">dni</td>
+            <td scope="col">perfil</td>
+            <td scope="col">edad</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list; let i = index">
+            <td>{{i}} </td>
+            <td>{{item.nombre}} </td>
+            <td>{{item.email}} </td>
+            <td>{{item.dni}} </td>
+            <td>{{item.perfil}} </td>
+            <td>{{item.edad}} </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center align-items-center">
+        <button (click)="click()" class="btn btn-primary btn-lg">EXPORTAR</button>
+      </div>
+    </div>
 
-                  </table>
-                </div>
-                        
-               
+  </div>
+</div> -->
 
-                <div class="d-flex justify-content-center align-items-center">
-                  <button *ngIf="activo" class="btn btn-primary" (click) = "makePDF()" >CREAR PDF</button>
-                </div>
 
-              </div>
+<!-- NEW TABLE -->
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center">
+    <h2>Usuarios</h2>
+  </div>
+  <div class="table-container">
+    <div class="export-button-container">
+      <button mat-raised-button class="export-button" color="primary" (click)="click()">
+        <mat-icon>file_download</mat-icon>
+        Exportar
+      </button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            </div>
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="#">
+        <th mat-header-cell *matHeaderCellDef> # </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="dni">
+        <th mat-header-cell *matHeaderCellDef> DNI </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.dni}}
+        </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="perfil">
+        <th mat-header-cell *matHeaderCellDef> Perfil </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.perfil}}
+        </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="edad">
+        <th mat-header-cell *matHeaderCellDef> Edad </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.edad}}
+        </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="historiaclinicaa">
+        <th mat-header-cell *matHeaderCellDef> Historia Clínica </th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngFor="let item of lista2">
+            <button *ngIf="element.email == item" class="btn btn-primary" (click)="disparo(item)">
+              <i class="fa fa-eye"></i> Ver
+            </button>
+          </ng-container>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>
+
+<!-- OLD TABLE -->
+<!-- <div *ngIf="activo" class="d-flex justify-content-center align-items-center">
+  <div class="d-flex  tt" >
+    <input class="form-control me-2" type="search" placeholder="Search" value="dasd"  aria-label="Search" [(ngModel)]="b">
+    <button class="btn btn-outline-success" (click) = "hacerBusqueda()" type="button">Search</button>
+    <button class="btn btn-outline-warning" type="button" (click) = "limpiar()">Limpiar</button>
+  </div>
+  </div> -->
+<!-- <div class="d-flex justify-content-center align-items-center">
+
+  <div #table *ngIf="activo">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="d-flex justify-content-between align-items-center taca">        
+        <span>{{auth.correologeado}}</span>
+        <span>{{fecha}}</span>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+      <table class="table tt borde" *ngIf="historiaclinicaa != null">
+        <thead>
+          <tr>
+            <th scope="col">Altura</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Presion</th>
+            <th scope="col">Temperatura</th>
+            <th scope="col">Dia</th>
+            <th scope="col">Hora</th>
+            <th scope="col">val1</th>
+            <th scope="col">val2</th>
+            <th scope="col">val3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of historiaclinicaa ">
+            <td>{{item.altura}} </td>
+            <td>{{item.peso}} </td>
+            <td>{{item.presion}} </td>
+            <td>{{item.temepratura}} </td>
+            <td>{{item.dia}} </td>
+            <td>{{item.hora}}:{{item.minutos}} </td>
+            <td>{{item.valor1}} </td>
+            <td>{{item.valor2}} </td>
+            <td>{{item.valor3}} </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+
+
+    <div class="d-flex justify-content-center align-items-center">
+      <button *ngIf="activo" class="btn btn-primary" (click)="exportToPDF()">CREAR PDF</button>
+    </div>
+
+  </div>
+
+</div> -->
+
+<!-- New Table histria cliníca -->
+<div class="container" *ngIf="activo">
+  <div class="table-container">    
+    <div class="export-button-container">
+      <input type="text" class="form-control" [(ngModel)]="filtro" (input)="hacerBusqueda()"
+      placeholder="Filtrar por nombre">
+      <button type="button" (click)="restablecer()">Restablecer</button>
+      <button mat-raised-button class="export-button" color="primary"
+        (click)="makePDF()"><mat-icon>file_download</mat-icon>Exportar</button>
+    </div>
+    
+    <div id="historiaPDF" class="table-responsive">
+      <div class="export-button-container"><span style="margin-right: 10px;font-weight: bold;">Usuario:  {{tildado}} </span> <span style="font-weight: bold;">Fecha: {{fecha}} </span> </div>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Altura</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Presion</th>
+            <th scope="col">Temperatura</th>
+            <th scope="col">Dia</th>
+            <th scope="col">Hora</th>
+            <th scope="col">val1</th>
+            <th scope="col">val2</th>
+            <th scope="col">val3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of historiaclinicaa">
+            <td>{{item.altura}} </td>
+            <td>{{item.peso}} </td>
+            <td>{{item.presion}} </td>
+            <td>{{item.temepratura}} </td>
+            <td>{{item.dia}} </td>
+            <td>{{item.hora}}:{{item.minutos}} </td>
+            <td>{{item.otros && item.otros.length > 0 ? item.otros[0].clave + ' : ' + item.otros[0].valor: ''}}</td>
+            <td>{{item.otros && item.otros.length > 0 ? item.otros[1].clave + ' : ' + item.otros[1].valor: ''}}</td>
+            <td>{{item.otros && item.otros.length > 0 ? item.otros[2].clave + ' : ' + item.otros[2].valor: ''}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

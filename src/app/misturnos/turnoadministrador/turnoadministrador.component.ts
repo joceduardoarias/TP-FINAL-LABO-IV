@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Historiaclinica } from 'src/app/clases/historiaclinica';
 import { AgregarestadoturnoService } from 'src/app/services/agregarestadoturno.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -17,11 +19,16 @@ export class TurnoadministradorComponent implements OnInit {
   list:any;
   resenia:boolean = false;
   reseniaActual:any;
+  displayedColumns: string[] = ['dia', 'horario', 'especialidad', 'paciente', 'accion'];  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  dataSource:any = new MatTableDataSource<any>();
+
   constructor(public auth:AuthService,private agregarestadoturno:AgregarestadoturnoService,private hsturnos:HorariosturnosService,private historiaclinica:HistoriaClinicaService) 
   {
     this.agregarestadoturno.getAll().valueChanges().subscribe(e=>{
       this.list = e;
-      
+      this.dataSource.data = this.list;
+      this.dataSource.paginator = this.paginator;
     })
     this.historiaclinica.getAll().valueChanges().subscribe(e=>{
       this.historiaclinicaa = e;
@@ -213,9 +220,21 @@ export class TurnoadministradorComponent implements OnInit {
    })})
   }
   verresenia(data:any)
-  {
-    this.reseniaActual = data;
-    this.resenia  = !this.resenia;
+  {    
+    var tablaHTML = this.tableHtml(data);
+    Swal.fire({
+      title: 'Reseña',
+      html: tablaHTML,
+      showConfirmButton: false,
+      cancelButtonText: "Cerrar",
+      showCancelButton: true,
+      showCloseButton: true,
+      customClass: {    
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false,
+      width:"800px"
+    }); 
   }
 
   quehago(dia:any,hora:any,minutos:any,email:any)
@@ -284,5 +303,35 @@ export class TurnoadministradorComponent implements OnInit {
       this.list.push(e.data());
     })})
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  tableHtml(data){
+    const tablaHTML = `
+    <div class="table-responsive" style="max-height: 200px; overflow-y: auto;">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th scope="col" style="min-width: 150px">Comentario Paciente</th>
+      <th scope="col" style="min-width: 150px">Comentario Especialista</th>
+      <th scope="col" style="min-width: 150px">Comentario Administrador</th>
+      <th scope="col" style="min-width: 150px">Diagnóstico</th>
+      </tr>
+    </thead>
+    <tbody>      
+    <td>${data.comentariopaciente} </td>
+    <td>${data.comentarioespecialista}</td>
+    <td>${data.comentarioadmin}</td>
+    <td>${data.diagnostico}</td>          
+    </tbody>
+  </table>
+  </div>
+`;
+ return tablaHTML;
+  }
 }

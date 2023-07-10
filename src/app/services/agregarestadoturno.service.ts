@@ -32,7 +32,7 @@ export class AgregarestadoturnoService {
       comentariopaciente:data.comentariopaciente,
       diagnostico:data.diagnostico,
       estado:data.estado,
-
+      encuesta: (data.encuesta === null || data.encuesta === undefined) ? false : true
     });
   }
 

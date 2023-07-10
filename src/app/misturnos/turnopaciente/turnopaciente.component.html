@@ -52,77 +52,182 @@
 <div class="container">
   <div class="d-flex justify-content-center align-items-center">
     <h2>MIS TURNOS</h2>
+  </div>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="dia">
+        <th mat-header-cell *matHeaderCellDef> Día</th>
+        <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="horario">
+        <th mat-header-cell *matHeaderCellDef> Horario </th>
+        <td mat-cell *matCellDef="let element"> {{element.hora}}:{{element.minutos}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="especialidad">
+        <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+        <td mat-cell *matCellDef="let element"> {{element.especialidad}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="especialista">
+        <th mat-header-cell *matHeaderCellDef> Especilista </th>
+        <td mat-cell *matCellDef="let element"> {{element.correoEspecialista}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="paciente">
+        <th mat-header-cell *matHeaderCellDef> Paciente </th>
+        <td mat-cell *matCellDef="let element"> {{element.correoPaciente}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef> Acción </th>
+        <td mat-cell *matCellDef="let element">
+          <button class="btn btn-danger" *ngIf="element.estado == 'pendiente' || element.estado == 'aceptado'"
+            (click)="cancelarTurno('paciente', element)">
+            <mat-icon class="mr-2">cancel</mat-icon>
+            Cancelar
+          </button>
+          <button class="btn btn-primary" *ngIf="element.estado == 'finalizado' && !element!.encuesta" (click)="verEncuesta(element)">
+            <mat-icon class="mr-2">assignment_turned_in</mat-icon>
+            Encuesta
+          </button>
+          <button class="btn btn-primary" *ngIf="element.estado == 'realizado'">
+            <mat-icon class="mr-2">star</mat-icon>
+            Calificar Turno
+          </button>
+          <button class="btn btn-primary" (click)="verresenia(element)"
+            *ngIf="element.comentariopaciente != 'No hay comentario' || element.comentarioespecialista != 'No hay comentario' || element.comentarioadmin != 'No hay comentario' || element.diagnostico != 'No hay comentario'">
+            <mat-icon class="mr-2">comment</mat-icon>
+            Ver Reseña
+          </button>
+        </td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
 </div>
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-</mat-form-field>
-<div class="table-container">
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+<div class="container" *ngIf="motrarEncuesta">
+  <div class="d-flex justify-content-center align-items-center">
+    <h2>ENCUESTA</h2>
+  </div>
+  <div class="stepper-container">
+    <mat-stepper #stepper [orientation]="'vertical'">
+      <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>¿Tuviste algún problema para reservar un turno? - radio button</ng-template>
+          <mat-radio-group aria-label="Select an option" formControlName="firstCtrl" required>
+            <mat-radio-button value="1">Si</mat-radio-button>
+            <mat-radio-button value="2">No</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>                  
+      <mat-step [stepControl]="threeFormGroup" errorMessage="Address is required.">
+        <form [formGroup]="threeFormGroup">
+          <ng-template matStepLabel>En una escala del 1 al 10, ¿qué tan probable es que recomiendes nuestro centro
+            médico a tus amigos y familiares? - rango</ng-template>
+          <mat-card class="example-result-card">
+            <mat-card-content>
+              <h2>Result</h2>
+              <div class="example-label-container">
+                <label id="example-name-label" class="example-name-label">Value</label>
+                <label class="example-value-label">{{threeFormGroup.get('threeCtrl').value}}</label>
+              </div>
+              <mat-slider class="example-margin" [disabled]="disabled" [max]="max" [min]="min" [step]="step"
+                [thumbLabel]="thumbLabel" formControlName="threeCtrl"></mat-slider>
+              <div class="example-label-container-2">
+                <label id="example-name-label" class="example-name-label">Muy malo</label>
+                <label id="example-name-label" class="example-name-label">Muy bueno</label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="fourFormGroup" errorMessage="Address is required.">
+        <form [formGroup]="fourFormGroup">
+          <ng-template matStepLabel>¿Cómo calificarías a tu proveedor de atención médica cuando se trata de recetar
+            medicamentos? - select</ng-template>
+          <h4>Seleccione una opción</h4>
+          <mat-form-field>
+            <mat-select formControlName="fourCtrl">
+              <mat-option value="1">Buena</mat-option>
+              <mat-option value="2">Regular</mat-option>
+              <mat-option value="3">Mala</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p>Selected food: {{ fourFormGroup.get('fourCtrl').value }}</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" errorMessage="Debe completar todas las preguntas">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel >Sugerencias del servicio</ng-template>                                           
+          <mat-form-field>
+            <mat-label>Sugerencias del servicio</mat-label>            
+            <textarea matInput formControlName="sugerenciasCtrl" rows="5"></textarea>            
+          </mat-form-field>      
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="fiveFormGroup" errorMessage="Address is required.">
+        <form [formGroup]="fiveFormGroup">
+          <ng-template matStepLabel>Valora tu experiencia</ng-template>
+          <div class="star-rating">
+            <mat-icon *ngFor="let star of stars"
+              [ngClass]="{ 'star-filled': star <= valoracionControl.value, 'star-empty': star > valoracionControl.value }"
+              (click)="rateExperience(star)">&#9733;</mat-icon>
+          </div>
+          <h4>Tu valoración: {{ valoracionControl.value }}</h4>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Enviar</ng-template>
+        <div>
+          <p>¡Gracias por completar la encuesta!</p>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="enviarEncuesta()">Enviar</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="dia">
-    <th mat-header-cell *matHeaderCellDef> Día</th>
-    <td mat-cell *matCellDef="let element"> {{element.dia}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="horario">
-    <th mat-header-cell *matHeaderCellDef> Horario </th>
-    <td mat-cell *matCellDef="let element"> {{element.hora}}:{{element.minutos}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="especialidad">
-    <th mat-header-cell *matHeaderCellDef> Especialidad </th>
-    <td mat-cell *matCellDef="let element"> {{element.especialidad}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="especialista">
-    <th mat-header-cell *matHeaderCellDef> Especilista </th>
-    <td mat-cell *matCellDef="let element"> {{element.correoEspecialista}}  </td>
-  </ng-container>  
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="paciente">
-    <th mat-header-cell *matHeaderCellDef> Paciente </th>
-    <td mat-cell *matCellDef="let element"> {{element.correoPaciente}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="accion">
-    <th mat-header-cell *matHeaderCellDef> Acción </th>
-    <td mat-cell *matCellDef="let element">
-      <button class="btn btn-danger" *ngIf="element.estado == 'pendiente' || element.estado == 'aceptado'" (click)="cancelarTurno('paciente', element)">
-        <mat-icon class="mr-2">cancel</mat-icon>
-        Cancelar
-      </button>
-      <button class="btn btn-primary" *ngIf="element.estado == 'realizado'">
-        <mat-icon class="mr-2">assignment_turned_in</mat-icon>
-        Encuesta
-      </button>
-      <button class="btn btn-primary" *ngIf="element.estado == 'realizado'">
-        <mat-icon class="mr-2">star</mat-icon>
-        Calificar Turno
-      </button>
-      <button class="btn btn-primary" (click)="verresenia(element)" *ngIf="element.comentariopaciente != 'No hay comentario' || element.comentarioespecialista != 'No hay comentario' || element.comentarioadmin != 'No hay comentario' || element.diagnostico != 'No hay comentario'">
-        <mat-icon class="mr-2">comment</mat-icon>
-        Ver Reseña
-      </button>
-    </td>
-    
-    </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-  <!-- Row shown when there is no matching data. -->
-  <tr class="mat-row" *matNoDataRow>
-    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-  </tr>
-</table>
-
-<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
 </div>
-</div>
+<!-- Add a button to send the data -->

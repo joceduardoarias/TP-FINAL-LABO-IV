@@ -1,51 +1,3 @@
-.general
-{
-    min-height: 70vh;
-}
-.segundogeneral
-{
-   
-    min-width: 50%;
-    border-radius: 10px;
-    border: solid 2px red;
-}
-/* td:hover
-{
-    background-color:aquamarine;
-} */
-.wii
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.tam
-{
-    max-width: 200px;
-}
-.tt
-{
-    width: 600px;
-}
-#cuadrado
-{
-    display: inline-block;
-    min-height: 200px;
-    animation-name: mianimacion;
-    animation-duration: 3s;
-    position:relative;
-    animation-direction: reverse;
-    animation-timing-function: linear;
-}
-@keyframes mianimacion
-{
-    0%{left: 0;top:-10vh;}
-    20%{left: 0;top:-20vh;}
-    40%{left: 0;top:-40vh;}
-    60%{left: 0;top:-60vh;}
-    80%{left: 0;top:-80vh;}
-    100%{left: 0;top:-100vh;}
-}
 
 table {
   width: 100%;
@@ -79,3 +31,83 @@ table {
   button{
     min-width: 158px;
   }
+
+  .stepper-container{
+    width: 100%;
+  }
+/* Estilos para el contenedor del mat-step */
+.mat-step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para los radio buttons */
+.mat-radio-group {
+  display: flex;
+  flex-direction: column;  
+}
+
+/* Estilos para el botón */
+.mat-step-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mat-radio-button + .mat-radio-button {
+  margin-top: 10px; /* Ajusta el espacio entre los radio buttons */
+}
+
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+.mat-mdc-slider {  
+  width: 100%;
+}
+.mat-mdc-card + .mat-mdc-card {
+  margin-top: 8px;
+}
+.example-label-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 10px 0;
+  max-width: 284px;
+}
+
+.example-result-card .example-value-label {
+  font-weight: 600;
+}
+.mat-slider-horizontal {
+  height: 48px;
+  min-width: 300px;
+}
+.example-label-container-2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px 0;
+  max-width: 284px;
+}
+.star-rating {
+  font-size: 24px;
+  color: #ccc;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.star-filled {
+  color: gold;
+}
+
+.star-empty {
+  color: #ccc;
+}

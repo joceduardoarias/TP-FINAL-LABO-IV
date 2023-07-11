@@ -5,6 +5,7 @@
     <div>
         <button class="btn btn-primary" (click) = "clickeado('ingresos')">{{"log.menu.Incomes" | translate}}</button>
         <button class="btn btn-primary" (click) = "clickeado('turnosespecialidad')">{{"log.menu.QuantityPerSpecialty"| translate}}</button>
+        <button class="btn btn-primary" (click) = "clickeado('encuestas')">{{"log.menu.surveys"| translate}}</button>
     </div>
     
 </div>
@@ -33,4 +34,7 @@
 </div>
 <div *ngIf="turnostiempofinalizados">
 <app-turnofinalizadolapso></app-turnofinalizadolapso>
+</div>
+<div *ngIf="encuestas">
+    <app-encuesta></app-encuesta>
 </div>

@@ -12,6 +12,7 @@ export class PrincipalComponent implements OnInit {
   cantturnosdia:boolean = false;
   turnostiempo:boolean = false;
   turnostiempofinalizados:boolean = false;
+  encuestas:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class PrincipalComponent implements OnInit {
       this.cantturnos = false;
       this.cantturnosdia = false;
       this.turnostiempo = false;
-      this.turnostiempofinalizados = false;
+      this.turnostiempofinalizados = false;      
     }
     if(data == 'turnosespecialidad')
     {
@@ -57,6 +58,14 @@ export class PrincipalComponent implements OnInit {
       this.cantturnosdia = false;
       this.turnostiempo = false;
       this.turnostiempofinalizados = true;
+    }
+    if(data == 'encuestas'){
+      this.ingresos = false;
+      this.cantturnos = false;
+      this.cantturnosdia = false;
+      this.turnostiempo = false;
+      this.turnostiempofinalizados = false;
+      this.encuestas = true;
     }
   }
 }

@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { EncuestaComponent } from './encuesta/encuesta.component';
 @NgModule({
   declarations: [
     PrincipalComponent,
@@ -32,7 +33,8 @@ import { MatButtonModule } from '@angular/material/button';
     OrdenarlogsPipe,
     FechaDirectivaDirectiveDirective,
     LargoMaximoDirective,
-    SoloNumerosDirective
+    SoloNumerosDirective,
+    EncuestaComponent
   ],
   imports: [
     FormsModule,

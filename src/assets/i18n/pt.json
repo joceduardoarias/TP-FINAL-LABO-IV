@@ -176,7 +176,8 @@
       "QuantityPerSpecialty": "Quantidade de turnos por especialidade",
       "QuantityPerDay": "Quantidade de turnos por dia",
       "ShiftsRequestedByDoctor": "Turnos solicitados por médico",
-      "ShiftsCompletedByDoctor": "Turnos finalizados por médico"
+      "ShiftsCompletedByDoctor": "Turnos finalizados por médico",
+      "surveys": "Pesquisas"
     }
   } 
 }

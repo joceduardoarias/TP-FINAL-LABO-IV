@@ -176,7 +176,8 @@
       "QuantityPerSpecialty": "Quantity of Shifts per Specialty",
       "QuantityPerDay": "Quantity of Shifts per Day",
       "ShiftsRequestedByDoctor": "Shifts Requested by Doctor",
-      "ShiftsCompletedByDoctor": "Shifts Completed by Doctor"
+      "ShiftsCompletedByDoctor": "Shifts Completed by Doctor",
+      "surveys": "Surveys"
     }
   } 
 }

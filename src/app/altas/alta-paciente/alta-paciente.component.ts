@@ -172,7 +172,7 @@ esto(data:any)
   {
    setTimeout(() => {
     this.formGroup.get("capchaInput").setValue('');   
-    console.log( this.formGroup.get("capchaInput").value);
+    
     
     
    }, 100);

@@ -22,16 +22,5 @@ export class MisturnosComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-     // setTimeout(() => {    
-  
-
-        
-    //     Object.keys(data[0]).forEach((entry,index)=>{
-    //       if(entry != "hora" && entry != "comentarioadmin" && entry != "correoEspecialista" && entry != "comentarioespecialista" && entry != "correoPaciente" && entry != "diagnostico" && entry != "dia" && entry != "comentariopaciente" && entry != "especialidad")
-    //         console.log(data[0][entry]);
-          
-    //     })
-      
-    // }, 2000);
+       
 }

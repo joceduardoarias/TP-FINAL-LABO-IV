@@ -110,7 +110,7 @@ export class EncuestaComponent implements OnInit {
     });
   }
   generatePieChart(data:any,pieChart:any,tittle:any) {
-    console.log(data,"Grfico torta");
+    
     
     const ctx = pieChart.nativeElement.getContext('2d');
     const labels = data.map(item => item.opcion);
@@ -163,7 +163,7 @@ export class EncuestaComponent implements OnInit {
       for (let key in objeto) {
         if (objeto.hasOwnProperty(key)) {
           const value = objeto[key];
-          console.log(`Clave: ${key}, Valor: ${value}`);
+          
           // Pregunta 1
           if (key == '1' && value == '1') {
             preguntaUnoSi++
@@ -239,8 +239,7 @@ export class EncuestaComponent implements OnInit {
     this.dataPregunta5.push({ opcion: 'Cuatro', cantidad: preguntaCincoCuatro++ });
     this.dataPregunta5.push({ opcion: 'Cinco', cantidad: preguntaCincoCinco++ });
     
-    console.log(this.dataPregunta1, "PreguntaUno");
-    console.log(this.dataPregunta3, "PreguntaTres");
+    
   }
   generatePDF() {
     const pdf = new jsPDF();

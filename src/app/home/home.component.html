@@ -1,5 +1,5 @@
 <div *ngIf="auth.paciente" class="general d-flex justify-content-center align-items-center">
-    <div class="tamaño d-flex justify-content-center align-items-center">
+    <div @slideInFromRight class="tamaño d-flex justify-content-center align-items-center">
         <div>
         <div class="d-flex justify-content-center align-items-center mt-2">
             <button class="btn btn-primary" [routerLink]="['/miperfil']">{{'home.MyProfile' | translate}}</button>
@@ -16,7 +16,7 @@
 
 
 <div *ngIf="auth.especialista" class="general d-flex justify-content-center align-items-center">
-    <div class="tamaño d-flex justify-content-center align-items-center">
+    <div @slideInFromRight class="tamaño d-flex justify-content-center align-items-center">
         <div>
         <div class="d-flex justify-content-center align-items-center mt-2">
             <button class="btn btn-primary" [routerLink]="['/miperfil']">{{'home.MyProfile' | translate}}</button>
@@ -31,8 +31,8 @@
     </div>
 </div>
 
-<div *ngIf="auth.administrador" class="general d-flex justify-content-center align-items-center">
-    <div class="tamaño d-flex justify-content-center align-items-center">
+<div *ngIf="auth.administrador"  class="general d-flex justify-content-center align-items-center">
+    <div @slideInFromRight class="tamaño d-flex justify-content-center align-items-center">
         <div>
         <div class="d-flex justify-content-center align-items-center mt-2">
             <button class="btn btn-primary" [routerLink]="['/ingreso/registrar']">{{'home.NewPatient' | translate}}/{{'home.NewSpecialist' | translate}}</button>

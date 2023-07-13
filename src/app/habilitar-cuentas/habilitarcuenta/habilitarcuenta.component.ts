@@ -2,10 +2,19 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { RegistrarUsuariosService } from 'src/app/services/registrar-usuarios.service';
 import {MatPaginator} from '@angular/material/paginator';
+import { trigger, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-habilitarcuenta',
   templateUrl: './habilitarcuenta.component.html',
-  styleUrls: ['./habilitarcuenta.component.css']
+  styleUrls: ['./habilitarcuenta.component.css'],
+  animations: [
+    trigger('slideInFromLeft', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)' }),
+        animate('500ms', style({ transform: 'translateX(0)' }))
+      ])
+    ])
+  ]
 })
 export class HabilitarcuentaComponent implements OnInit {
 

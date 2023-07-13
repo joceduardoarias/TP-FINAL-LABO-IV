@@ -10,12 +10,21 @@ import { RegistrarUsuariosService } from 'src/app/services/registrar-usuarios.se
 import { SelecespecialistaService } from 'src/app/services/selecespecialista.service';
 import { SubirimagenService } from 'src/app/services/subirimagen.service';
 import Swal from 'sweetalert2';
-import { isEmpty } from 'lodash';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-alta-especialista',
   templateUrl: './alta-especialista.component.html',
-  styleUrls: ['./alta-especialista.component.css']
+  styleUrls: ['./alta-especialista.component.css'],
+  animations: [trigger('scaleInOut', [
+    transition(':enter', [
+      style({ transform: 'scale(0)' }),
+      animate('500ms', style({ transform: 'scale(1)' }))
+    ]),
+    transition(':leave', [
+      animate('500ms', style({ transform: 'scale(0)' }))
+    ])
+  ])]
 })
 export class AltaEspecialistaComponent implements OnInit {
   public siteKey = '6Lck8EcgAAAAAI7iawlR4oS6ut7apOm6QDJihYIN'

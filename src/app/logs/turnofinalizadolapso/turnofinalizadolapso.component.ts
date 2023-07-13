@@ -22,16 +22,7 @@ export class TurnofinalizadolapsoComponent implements OnInit {
   @ViewChild('content', { static: false }) el!: ElementRef;
   ctx: any;
   constructor(private agregarestadoturno: AgregarestadoturnoService) {
-    // agregarestadoturno.getAll().valueChanges().subscribe(e=>{
-    //   for(let i = 0; i<e.length;i++)
-    //   {
-    //     if(e[i].dia >= this.fechaDesde && e[i].dia <=this.fechaHasta)
-    //     {
-    //       this.list.push(e[i]);
-    //     }
-    //   }
-    //   console.log(e);
-    // })
+    
   }
 
   ngOnInit(): void {}
@@ -43,26 +34,7 @@ export class TurnofinalizadolapsoComponent implements OnInit {
 
     let termineitor1 = this.startDate;
     let termineitor2 = this.endDate;
-
-    // var det = new Date("09/05/2024").trans
-    // console.log(det);
-
-    // var det = new Date(this.fechaDesde)
-    // console.log(det);
-
-    //   var date3 = new Date("09/05/2024")
-    //   var date4 = new Date("09/04/2024")
-    //   // var date1 = new Date("2024/04/08")
-    //   // var date2 = new Date("2024/04/08")
-    //   var f1 =    new Date(2015,11, 31); //31 de diciembre de 2015
-    //   var f2 =    new Date(2014, 10, 30);
-
-    // console.log(date3);
-
-    // if(date3 > date4)
-    // {
-    //   alert("si");
-    // }
+    
 
     let hola = this.agregarestadoturno
       .getAll()

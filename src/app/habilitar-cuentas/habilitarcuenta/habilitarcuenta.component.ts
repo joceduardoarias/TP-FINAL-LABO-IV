@@ -33,8 +33,7 @@ export class HabilitarcuentaComponent implements OnInit {
       {
         if(e[i].perfil == 'especialista')
         {
-          this.list.push(e[i]);
-          // console.log(e[i]);
+          this.list.push(e[i]);          
           
         }
       }

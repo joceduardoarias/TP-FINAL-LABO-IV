@@ -164,8 +164,7 @@ esto(data:any)
   debugger
   this.desactivar = !this.desactivar;
   if(this.desactivar == true)
-  {
-    console.log("sisi entro");
+  {    
     
     this.formGroup.get("capchaInput").setValue(this.capcha);   
   }

@@ -14,15 +14,14 @@ TP_FINAL_CLINICA: Nuestro sistema nos permite el control de una clinica online c
 *Github<br>
 
 ### ⟳ Donde encuentro esta Página? ⟲
-Se encuentra hostead en FIREBASE : https://tpfinal-c50ae.web.app/             ⬅
+Se encuentra hostead en FIREBASE : https://fir-hostingutn-1ebd6.web.app             ⬅
 
 
 
 ## Instalación para el uso del sistema.✅
 
-_Clonar repositorio_
 ```
-git clone https://github.com/HernanVilar/TP_FINAL_CLINICA.git
+
 ```
 _Instalacion de paquetes_ (Pararse en la raíz del proyecto y ejecutar el siguiente comando)
 
